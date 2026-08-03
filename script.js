@@ -8,104 +8,23 @@ let selectedReason = "";
 
 
 
-// Open BAN page
-
-function openBan(){
-
-
-    document.getElementById("home-menu")
-    .classList.add("hidden");
-
-
-    document.getElementById("ban-section")
-    .classList.remove("hidden");
-
-
-}
-
-
-
-
-
-// Open UNBAN page
-
-function openUnban(){
-
-
-    document.getElementById("home-menu")
-    .classList.add("hidden");
-
-
-    document.getElementById("unban-section")
-    .classList.remove("hidden");
-
-
-}
-
-
-
-
-
-// Back button
-
-function goBack(){
-
-
-    document.getElementById("ban-section")
-    .classList.add("hidden");
-
-
-    document.getElementById("unban-section")
-    .classList.add("hidden");
-
-
-    document.getElementById("home-menu")
-    .classList.remove("hidden");
-
-
-}
-
-
-
-
-
-// Channel
-
-function openChannel(){
-
-
-    window.open(
-        CONFIG.channel,
-        "_blank"
-    );
-
-
-}
-
-
-
-
-
-
-// Dropdown
+// Ouvrir / fermer menu raison
 
 function toggleReason(id){
 
 
-    const menu =
-    document.getElementById(id);
+    const menu = document.getElementById(id);
 
 
+    if(menu.style.display === "block"){
 
-    if(menu.style.display==="block"){
-
-        menu.style.display="none";
+        menu.style.display = "none";
 
     }
 
     else{
 
-        menu.style.display="block";
+        menu.style.display = "block";
 
     }
 
@@ -115,6 +34,9 @@ function toggleReason(id){
 
 
 
+
+
+// Choisir une raison
 
 function selectReason(reason){
 
@@ -122,16 +44,13 @@ function selectReason(reason){
     selectedReason = reason;
 
 
-    document.getElementById(
-        "selected-reason"
-    ).innerHTML =
+    document.getElementById("selected-reason").innerHTML =
+
     "Selected : " + reason;
 
 
 
-    document.getElementById(
-        "ban-reasons"
-    ).style.display="none";
+    document.getElementById("ban-reasons").style.display = "none";
 
 
 }
@@ -141,52 +60,54 @@ function selectReason(reason){
 
 
 
-
-// Open email
+// Envoyer vers Gmail
 
 function sendEmail(type){
 
 
 
-let number;
-let message;
+let number = "";
+
+let message = "";
 
 
 
-if(type==="ban"){
 
 
-    number =
-    document.getElementById(
+if(type === "ban"){
+
+
+    number = document.getElementById(
         "ban-number"
     ).value;
 
 
 
-    message =
-    document.getElementById(
+    message = document.getElementById(
         "ban-message"
     ).value;
+
 
 
 }
 
 
 
-else{
 
 
-    number =
-    document.getElementById(
+if(type === "unban"){
+
+
+    number = document.getElementById(
         "unban-number"
     ).value;
 
 
 
-    message =
-    document.getElementById(
+    message = document.getElementById(
         "unban-message"
     ).value;
+
 
 
 }
@@ -196,24 +117,30 @@ else{
 
 
 
-const subject =
-encodeURIComponent(
+const subject = encodeURIComponent(
+
 "WhatsApp Support Request"
+
 );
 
 
 
 
-const body =
-encodeURIComponent(
 
-`Hello WhatsApp Support,
 
-Number:
+const body = encodeURIComponent(
+
+`Hello Support,
+
+WhatsApp Number:
+
 ${number}
 
+
 Reason:
+
 ${selectedReason}
+
 
 Message:
 
@@ -228,17 +155,18 @@ ${message}
 
 
 
+
 window.location.href =
 
-"mailto:"+
+"mailto:" +
 
-CONFIG.supportEmail+
+CONFIG.supportContacts.join(",") +
 
-"?subject="+
+"?subject=" +
 
-subject+
+subject +
 
-"&body="+
+"&body=" +
 
 body;
 
