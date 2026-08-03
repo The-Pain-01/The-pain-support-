@@ -8,26 +8,22 @@ let selectedReason = "";
 
 
 
-// Ouvrir / fermer menu raison
 
-function toggleReason(id){
+// Ouvrir / fermer le menu Reason
 
+function toggleReason(id) {
 
     const menu = document.getElementById(id);
 
-
-    if(menu.style.display === "block"){
+    if (menu.style.display === "block") {
 
         menu.style.display = "none";
 
-    }
-
-    else{
+    } else {
 
         menu.style.display = "block";
 
     }
-
 
 }
 
@@ -36,17 +32,17 @@ function toggleReason(id){
 
 
 
-// Choisir une raison
 
-function selectReason(reason){
+// Sélectionner une raison
+
+function selectReason(reason) {
 
 
     selectedReason = reason;
 
 
     document.getElementById("selected-reason").innerHTML =
-
-    "Selected : " + reason;
+        "Selected : " + reason;
 
 
 
@@ -60,32 +56,70 @@ function selectReason(reason){
 
 
 
-// Envoyer vers Gmail
-
-function sendEmail(type){
 
 
+// Créer l'objet automatiquement
 
-let number = "";
-
-let message = "";
-
+function getSubject(type) {
 
 
+    if (type === "ban") {
 
 
-if(type === "ban"){
+        switch (selectedReason) {
 
 
-    number = document.getElementById(
-        "ban-number"
-    ).value;
+            case "Spam":
+
+                return "WhatsApp Spam Report - Support Request";
 
 
 
-    message = document.getElementById(
-        "ban-message"
-    ).value;
+            case "Scam":
+
+                return "WhatsApp Scam Report - Support Request";
+
+
+
+            case "Illegal Content":
+
+                return "WhatsApp Safety Report - Support Request";
+
+
+
+            case "Impersonation":
+
+                return "WhatsApp Impersonation Report - Support Request";
+
+
+
+            case "Other":
+
+                return "WhatsApp Account Report - Support Request";
+
+
+
+            default:
+
+                return "WhatsApp Support Request";
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+    if (type === "unban") {
+
+
+        return "WhatsApp Account Review Request";
+
+    }
 
 
 
@@ -95,40 +129,70 @@ if(type === "ban"){
 
 
 
-if(type === "unban"){
-
-
-    number = document.getElementById(
-        "unban-number"
-    ).value;
 
 
 
-    message = document.getElementById(
-        "unban-message"
-    ).value;
+// Envoyer vers l'application mail
+
+function sendEmail(type) {
 
 
 
-}
+    let number = "";
+
+    let message = "";
 
 
 
 
 
+    if (type === "ban") {
 
-const subject = encodeURIComponent(
 
-"WhatsApp Support Request"
-
-);
-
+        number =
+        document.getElementById("ban-number").value;
 
 
 
+        message =
+        document.getElementById("ban-message").value;
 
 
-const body = encodeURIComponent(
+
+    }
+
+
+
+
+
+    if (type === "unban") {
+
+
+        number =
+        document.getElementById("unban-number").value;
+
+
+
+        message =
+        document.getElementById("unban-message").value;
+
+
+
+    }
+
+
+
+
+
+    const subject = encodeURIComponent(
+        getSubject(type)
+    );
+
+
+
+
+
+    const body = encodeURIComponent(
 
 `Hello Support,
 
@@ -137,7 +201,7 @@ WhatsApp Number:
 ${number}
 
 
-Reason:
+Category:
 
 ${selectedReason}
 
@@ -148,7 +212,7 @@ ${message}
 
 `
 
-);
+    );
 
 
 
@@ -156,19 +220,19 @@ ${message}
 
 
 
-window.location.href =
+    window.location.href =
 
-"mailto:" +
+    "mailto:" +
 
-CONFIG.supportContacts.join(",") +
+    CONFIG.supportContacts.join(",") +
 
-"?subject=" +
+    "?subject=" +
 
-subject +
+    subject +
 
-"&body=" +
+    "&body=" +
 
-body;
+    body;
 
 
 
