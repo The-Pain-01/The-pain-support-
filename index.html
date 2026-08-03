@@ -2,189 +2,241 @@
 <html lang="fr">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>☠️ THE PAIN SUPPORT ☠️</title>
+    <title>
+        ☠️ THE PAIN SUPPORT ☠️
+    </title>
+
 
     <link rel="stylesheet" href="style.css">
+
     <link rel="icon" href="assets/favicon.ico">
+
 </head>
+
 
 <body>
 
-<!-- Background Video -->
 
 <video autoplay muted loop id="background-video">
+
     <source src="assets/bg.mp4" type="video/mp4">
+
 </video>
 
 
 <div class="overlay"></div>
 
 
-<!-- Main Container -->
 
-<div class="container">
+<div class="page">
 
 
-    <header>
 
-        <h1>
-            ☠️ —͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 ☠️
-        </h1>
+<header class="top-title">
 
-        <p class="subtitle">
-            Secure Support Center
-        </p>
+    <h1>
+        ☠️ —͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 ☠️
+    </h1>
 
-    </header>
 
+</header>
 
 
-    <!-- Home Buttons -->
 
-    <div id="home-menu">
 
 
-        <button class="main-btn" onclick="openBan()">
-            ⚠️ BAN SUPPORT
-        </button>
+<main class="container">
 
 
-        <button class="main-btn" onclick="openUnban()">
-            🔓 UNBAN SUPPORT
-        </button>
+<section id="ban-section" class="panel">
 
 
-        <button class="main-btn channel" onclick="openChannel()">
-            📢 CHANNEL
-        </button>
+<h2>
+    BAN SUPPORT
+</h2>
 
 
-    </div>
 
+<input 
+id="ban-number"
+type="text"
+placeholder="Enter WhatsApp number">
 
 
 
 
-    <!-- BAN SECTION -->
 
-    <section id="ban-section" class="panel hidden">
+<div class="dropdown">
 
 
-        <h2>
-            BAN SUPPORT
-        </h2>
+<button onclick="toggleReason('ban-reasons')">
 
+Reason ▼
 
-        <input 
-        id="ban-number"
-        type="text"
-        placeholder="+123456789">
+</button>
 
 
-        <div class="dropdown">
 
-            <button onclick="toggleReason('ban-reasons')">
-                Reason ▼
-            </button>
+<div id="ban-reasons" class="dropdown-content">
 
 
-            <div id="ban-reasons" class="dropdown-content">
+<p onclick="selectReason('Spam')">
+Spam
+</p>
 
-                <p onclick="selectReason('Spam')">
-                    Spam
-                </p>
 
-                <p onclick="selectReason('Scam')">
-                    Scam
-                </p>
+<p onclick="selectReason('Scam')">
+Scam
+</p>
 
-                <p onclick="selectReason('Illegal Content')">
-                    Illegal Content
-                </p>
 
-                <p onclick="selectReason('Impersonation')">
-                    Impersonation
-                </p>
+<p onclick="selectReason('Illegal Content')">
+Illegal Content
+</p>
 
-                <p onclick="selectReason('Other')">
-                    Other
-                </p>
 
-            </div>
+<p onclick="selectReason('Impersonation')">
+Impersonation
+</p>
 
 
-        </div>
+<p onclick="selectReason('Other')">
+Other
+</p>
 
 
-        <p id="selected-reason">
-            No reason selected
-        </p>
+</div>
 
 
+</div>
 
-        <textarea 
-        id="ban-message"
-        placeholder="Write your message...">
-        </textarea>
 
 
+<p id="selected-reason">
+No reason selected
+</p>
 
-        <button class="send-btn" onclick="sendEmail('ban')">
-            SEND EMAIL
-        </button>
 
 
-        <button class="back-btn" onclick="goBack()">
-            BACK
-        </button>
 
+<textarea
+id="ban-message"
+placeholder="Write your message...">
+</textarea>
 
-    </section>
 
 
 
+<button class="send-btn" onclick="sendEmail('ban')">
 
+OPEN EMAIL
 
+</button>
 
-    <!-- UNBAN SECTION -->
 
-    <section id="unban-section" class="panel hidden">
 
 
-        <h2>
-            ACCOUNT REVIEW
-        </h2>
+<a href="home.html">
 
+<button class="back-btn">
 
-        <input 
-        id="unban-number"
-        type="text"
-        placeholder="+123456789">
+BACK
 
+</button>
 
+</a>
 
-        <textarea
-        id="unban-message"
-        placeholder="Write your review request...">
-        </textarea>
 
 
+</section>
 
-        <button class="send-btn" onclick="sendEmail('unban')">
-            SEND EMAIL
-        </button>
 
 
 
-        <button class="back-btn" onclick="goBack()">
-            BACK
-        </button>
 
 
-    </section>
+
+
+<section id="unban-section" class="panel">
+
+
+<h2>
+ACCOUNT REVIEW
+</h2>
+
+
+
+<input
+
+id="unban-number"
+
+type="text"
+
+placeholder="Enter WhatsApp number">
+
+
+
+
+
+<textarea
+
+id="unban-message"
+
+placeholder="Write your review request...">
+
+</textarea>
+
+
+
+
+<button class="send-btn" onclick="sendEmail('unban')">
+
+OPEN EMAIL
+
+</button>
+
+
+
+
+<a href="home.html">
+
+<button class="back-btn">
+
+BACK
+
+</button>
+
+</a>
+
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+<footer>
+
+
+POWERED BY
+
+<br>
+
+—͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ ✦𝐓𝐃𝐋✦
+
+
+</footer>
 
 
 
@@ -194,20 +246,15 @@
 
 
 
-<footer>
-
-POWERED BY  
-<br>
-
-—͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ ✦𝐓𝐃𝐋✦
-
-</footer>
-
-
-
 <script src="config.js"></script>
+
+<script src="message.js"></script>
+
 <script src="script.js"></script>
 
 
+
 </body>
+
+
 </html>
