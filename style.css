@@ -8,260 +8,496 @@
 
 html,
 body{
+
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     background:#000;
+
     color:#fff;
+
 }
 
 
-/* BACKGROUND VIDEO */
+
 
 #background-video{
+
     position:fixed;
+
     top:0;
+
     left:0;
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     z-index:-2;
+
 }
 
 
-/* DARK FILTER */
+
+
 
 .overlay{
+
     position:fixed;
+
     top:0;
+
     left:0;
+
     width:100%;
+
     height:100%;
-    background:rgba(0,0,0,0.82);
+
+    background:rgba(0,0,0,.82);
+
     z-index:-1;
+
 }
 
 
 
-/* PAGE */
+
 
 .page{
+
     min-height:100vh;
+
     width:100%;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
+
     align-items:center;
+
     padding:35px 20px 20px;
+
 }
 
 
 
-/* HEADER */
+
 
 header{
+
     width:100%;
+
     text-align:center;
+
 }
+
+
+
 
 
 .title{
-    color:#ff0000;
-    font-size:3.2rem;
+
+    color:#fff;
+
+    font-size:3rem;
+
     font-weight:900;
-    letter-spacing:4px;
+
+    letter-spacing:3px;
+
     text-transform:uppercase;
 
-    text-shadow:
-    0 0 8px #ff0000,
-    0 0 18px #ff0000,
-    0 0 35px #8b0000;
+    white-space:nowrap;
+
 }
 
 
 
-/* MAIN */
+
 
 main{
+
     flex:1;
+
     width:100%;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
 }
+
+
 
 
 
 .button-container{
 
     width:100%;
+
     max-width:380px;
 
     display:flex;
+
     flex-direction:column;
 
-    gap:25px;
+    gap:22px;
 
     align-items:center;
+
 }
 
 
 
-/* BUTTONS */
+
 
 .main-btn{
 
     width:100%;
+
     height:65px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
+
+    border:2px solid #fff;
+
+    border-radius:15px;
+
+
+    background:rgba(0,0,0,.55);
+
+
+    color:#fff;
+
 
     text-decoration:none;
 
-    border:2px solid #ff1f1f;
-    border-radius:15px;
 
-    background:rgba(0,0,0,0.55);
+    font-size:1.1rem;
 
-    color:white;
-
-    font-size:1.15rem;
     font-weight:900;
+
 
     letter-spacing:2px;
 
+
     cursor:pointer;
+
 
     transition:.3s;
 
+
     backdrop-filter:blur(8px);
 
-    box-shadow:
-    0 0 10px rgba(255,0,0,.4);
+
 }
+
 
 
 
 .main-btn:hover{
 
-    background:#ff0000;
 
-    transform:scale(1.06);
+    background:#fff;
+
+
+    color:#000;
+
+
+    transform:scale(1.05);
+
 
     box-shadow:
 
-    0 0 15px #ff0000,
-    0 0 35px #ff0000,
-    0 0 60px #8b0000;
+    0 0 20px #fff;
+
 
 }
 
 
 
-.main-btn:active{
 
-    transform:scale(.97);
+.support-input{
 
-}
-
-
-
-/* FOOTER */
-
-footer{
 
     width:100%;
 
-    text-align:center;
 
-    color:#ddd;
+    height:60px;
 
-    font-size:.85rem;
 
-    font-weight:700;
+    border:2px solid #fff;
 
-    letter-spacing:2px;
 
-    padding-top:15px;
+    border-radius:15px;
+
+
+    background:rgba(0,0,0,.55);
+
+
+    color:#fff;
+
+
+    padding:15px;
+
+
+    font-size:1rem;
+
+
+    outline:none;
+
 
 }
 
 
 
-/* MOBILE */
+
+
+.support-input::placeholder{
+
+    color:#ccc;
+
+}
+
+
+
+
+
+.textarea{
+
+    height:120px;
+
+    resize:none;
+
+}
+
+
+
+
+
+.form-title{
+
+    color:#fff;
+
+    font-size:1.5rem;
+
+    font-weight:900;
+
+    text-align:center;
+
+    letter-spacing:2px;
+
+}
+
+
+
+
+
+.reason-box{
+
+    width:100%;
+
+    position:relative;
+
+}
+
+
+
+
+
+.reason-list{
+
+
+    display:none;
+
+
+    position:absolute;
+
+
+    top:75px;
+
+
+    width:100%;
+
+
+    background:#000;
+
+
+    border:2px solid #fff;
+
+
+    border-radius:15px;
+
+
+    z-index:5;
+
+
+}
+
+
+
+
+
+.reason-list p{
+
+
+    padding:15px;
+
+
+    color:#fff;
+
+
+    cursor:pointer;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.reason-list p:hover{
+
+
+    background:#fff;
+
+    color:#000;
+
+
+}
+
+
+
+
+
+#selected-reason{
+
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:.9rem;
+
+}
+
+
+
+
+
+footer{
+
+
+    width:100%;
+
+
+    text-align:center;
+
+
+    color:#fff;
+
+
+    font-size:.85rem;
+
+
+    font-weight:700;
+
+
+    letter-spacing:2px;
+
+
+    white-space:nowrap;
+
+
+}
+
+
+
+
 
 @media(max-width:768px){
 
 
+
 .title{
 
-    font-size:2.2rem;
 
-    letter-spacing:2px;
+    font-size:2rem;
+
+    letter-spacing:1px;
+
 
 }
+
 
 
 .button-container{
 
+
     max-width:330px;
 
+
 }
+
 
 
 .main-btn{
 
+
     height:58px;
+
 
     font-size:1rem;
 
+
 }
+
 
 
 footer{
 
+
     font-size:.75rem;
 
-}
-
 
 }
 
 
 
-/* PETITS ECRANS */
-
-@media(max-height:600px){
-
-
-.page{
-
-    padding-top:20px;
-
 }
+
+
+
+
+
+@media(max-width:400px){
+
 
 
 .title{
 
-    font-size:1.8rem;
+
+    font-size:1.6rem;
+
 
 }
 
-
-.button-container{
-
-    gap:15px;
-
-}
-
-
-.main-btn{
-
-    height:52px;
-
-}
 
 
 }
