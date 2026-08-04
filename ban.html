@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>☠️ BAN SUPPORT ☠️</title>
+<title>🔥 BAN SUPPORT 🔥</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,16 +21,12 @@
 
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
-    <source src="assets/bg.mp4" type="video/mp4">
+<source src="assets/bg.mp4" type="video/mp4">
 
 </video>
 
 
-
 <div class="overlay"></div>
-
-
-
 
 
 
@@ -52,8 +48,6 @@
 
 
 
-
-
 <main>
 
 
@@ -65,7 +59,7 @@
 
 <h2 class="form-title">
 
-BAN SUPPORT
+🔥 BAN SUPPORT 🔥
 
 </h2>
 
@@ -85,8 +79,6 @@ type="text"
 
 placeholder="+243XXXXXXXXX"
 
-oninput="updateMessage('ban')"
-
 >
 
 
@@ -95,14 +87,15 @@ oninput="updateMessage('ban')"
 
 
 
-<div class="reason-box">
 
 
 <button class="main-btn" onclick="toggleReason('ban-reasons')">
 
-Reason ▼
+📌 REASON 📌
 
 </button>
+
+
 
 
 
@@ -111,50 +104,54 @@ Reason ▼
 <div id="ban-reasons" class="reason-list">
 
 
-<p onclick="selectReason('Spam','ban')">
+
+<p onclick="selectReason('Spam')">
 
 Spam
 
 </p>
 
 
-<p onclick="selectReason('Scam','ban')">
+
+<p onclick="selectReason('Scam')">
 
 Scam
 
 </p>
 
 
-<p onclick="selectReason('Illegal Content','ban')">
+
+<p onclick="selectReason('Illegal Content')">
 
 Illegal Content
 
 </p>
 
 
-<p onclick="selectReason('Child Safety','ban')">
+
+<p onclick="selectReason('Child Safety')">
 
 Child Safety
 
 </p>
 
 
-<p onclick="selectReason('Impersonation','ban')">
+
+<p onclick="selectReason('Impersonation')">
 
 Impersonation
 
 </p>
 
 
-<p onclick="selectReason('Other','ban')">
+
+<p onclick="selectReason('Other')">
 
 Other
 
 </p>
 
 
-</div>
-
 
 </div>
 
@@ -164,12 +161,11 @@ Other
 
 
 
-<div class="reason-box" id="script-container" style="display:none;">
 
 
-<button class="main-btn" onclick="toggleReason('script-list')">
+<button id="script-button" class="main-btn" onclick="toggleReason('ban-scripts')" style="display:none;">
 
-Script ▼
+📜 SCRIPT 📜
 
 </button>
 
@@ -177,7 +173,10 @@ Script ▼
 
 
 
-<div id="script-list" class="reason-list">
+
+
+<div id="ban-scripts" class="reason-list">
+
 
 
 <p onclick="selectScript('Script 1')">
@@ -187,11 +186,13 @@ Script 1
 </p>
 
 
+
 <p onclick="selectScript('Script 2')">
 
 Script 2
 
 </p>
+
 
 
 <p onclick="selectScript('Script 3')">
@@ -201,11 +202,13 @@ Script 3
 </p>
 
 
+
 <p onclick="selectScript('Script 4')">
 
 Script 4
 
 </p>
+
 
 
 <p onclick="selectScript('Script 5')">
@@ -214,8 +217,6 @@ Script 5
 
 </p>
 
-
-</div>
 
 
 </div>
@@ -239,6 +240,7 @@ No reason selected
 
 
 
+
 <textarea
 
 class="support-input textarea"
@@ -255,9 +257,10 @@ placeholder="Message">
 
 
 
+
 <button class="main-btn" onclick="sendEmail('ban')">
 
-SEND REPORT
+🔥 SEND REPORT 🔥
 
 </button>
 
@@ -267,11 +270,13 @@ SEND REPORT
 
 
 
-<a href="index.html" class="main-btn">
 
-BACK
+<a href="home.html" class="main-btn">
+
+⬅️ BACK ⬅️
 
 </a>
+
 
 
 
@@ -301,10 +306,7 @@ POWERED BY THE PAIN TDL
 
 
 
-
 </div>
-
-
 
 
 
@@ -320,5 +322,6 @@ POWERED BY THE PAIN TDL
 
 
 </body>
+
 
 </html>
