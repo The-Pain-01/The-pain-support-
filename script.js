@@ -5,114 +5,93 @@
 
 let selectedReason = "";
 
+let selectedType = "";
+
+
+
 
 
 // ================================
-// DROPDOWN REASON
+// OUVRIR / FERMER MENU
 // ================================
 
-function toggleReason(id) {
+function toggleReason(id){
+
 
     const menu = document.getElementById(id);
 
-    if (!menu) return;
+
+    if(!menu) return;
 
 
-    if (menu.style.display === "block") {
+
+    if(menu.style.display === "block"){
+
 
         menu.style.display = "none";
 
-    } else {
+
+    }else{
+
 
         menu.style.display = "block";
 
+
     }
+
 
 }
 
 
 
 
+
+
+
 // ================================
-// SELECT REASON
+// CHOIX REASON / SCRIPT
 // ================================
 
-function selectReason(reason) {
+function selectReason(value,type){
 
 
-    selectedReason = reason;
+
+    selectedReason = value;
+
+    selectedType = type;
+
+
+
 
 
     const display = document.getElementById("selected-reason");
 
 
+
     if(display){
 
-        display.innerHTML = "Selected : " + reason;
+
+
+        display.innerHTML = value;
+
+
 
     }
 
 
 
-    const menu = document.getElementById("ban-reasons");
 
-
-    if(menu){
-
-        menu.style.display = "none";
-
-    }
-
-
-}
-
-
-
-
-
-
-// ================================
-// SUBJECT AUTOMATIQUE
-// ================================
-
-function getSubject(type) {
 
 
     if(type === "ban"){
 
 
-        switch(selectedReason){
+        const menu = document.getElementById("ban-reasons");
 
 
-            case "Spam":
+        if(menu){
 
-                return "WhatsApp Spam Report - Support Request";
-
-
-            case "Scam":
-
-                return "WhatsApp Scam Report - Support Request";
-
-
-            case "Illegal Content":
-
-                return "WhatsApp Safety Report - Support Request";
-
-
-            case "Impersonation":
-
-                return "WhatsApp Impersonation Report - Support Request";
-
-
-            case "Other":
-
-                return "WhatsApp Account Report - Support Request";
-
-
-            default:
-
-                return "WhatsApp Account Suspension Review";
-
+            menu.style.display = "none";
 
         }
 
@@ -122,20 +101,230 @@ function getSubject(type) {
 
 
 
+
+
     if(type === "unban"){
 
 
-        return "WhatsApp Account Unban Request";
+        const menu = document.getElementById("script-list");
+
+
+        if(menu){
+
+            menu.style.display = "none";
+
+        }
 
 
     }
 
 
 
-    return "WhatsApp Support Request";
+
+
+    updateMessage(type);
+
 
 
 }
+
+
+
+
+
+
+
+// ================================
+// MESSAGE AUTOMATIQUE
+// ================================
+
+function updateMessage(type){
+
+
+
+    let number = "";
+
+
+
+    if(type === "ban"){
+
+
+
+        const input = document.getElementById("ban-number");
+
+
+        if(input){
+
+            number = input.value;
+
+        }
+
+
+
+
+
+        const box = document.getElementById("ban-message");
+
+
+
+        if(!box) return;
+
+
+
+
+
+
+        if(selectedReason === "Other"){
+
+
+
+            box.value = "";
+
+            return;
+
+
+        }
+
+
+
+
+
+
+        if(
+
+            MESSAGES.ban[selectedReason]
+
+        ){
+
+
+
+            box.value =
+
+            MESSAGES.ban[selectedReason]
+
+            .replace("{number}",number);
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+    if(type === "unban"){
+
+
+
+        const input = document.getElementById("unban-number");
+
+
+
+        if(input){
+
+            number = input.value;
+
+        }
+
+
+
+
+
+
+        const box = document.getElementById("unban-message");
+
+
+
+        if(!box) return;
+
+
+
+
+
+
+
+        if(
+
+            MESSAGES.unban[selectedReason]
+
+        ){
+
+
+
+            box.value =
+
+            MESSAGES.unban[selectedReason]
+
+            .replace("{number}",number);
+
+
+
+        }
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// SUJET EMAIL
+// ================================
+
+function getSubject(type){
+
+
+
+    if(type === "ban"){
+
+
+        return "WhatsApp Report - " + selectedReason;
+
+
+    }
+
+
+
+
+
+
+    if(type === "unban"){
+
+
+        return "WhatsApp Account Review - " + selectedReason;
+
+
+    }
+
+
+
+
+
+    return "WhatsApp Support";
+
+
+
+}
+
+
+
 
 
 
@@ -149,6 +338,7 @@ function getSubject(type) {
 function sendEmail(type){
 
 
+
     let number = "";
 
     let message = "";
@@ -156,29 +346,22 @@ function sendEmail(type){
 
 
 
+
     if(type === "ban"){
 
 
-        const numberInput = document.getElementById("ban-number");
 
-        const messageInput = document.getElementById("ban-message");
-
-
-        if(numberInput){
-
-            number = numberInput.value;
-
-        }
+        number = document.getElementById("ban-number").value;
 
 
-        if(messageInput){
 
-            message = messageInput.value;
+        message = document.getElementById("ban-message").value;
 
-        }
 
 
     }
+
+
 
 
 
@@ -188,23 +371,13 @@ function sendEmail(type){
     if(type === "unban"){
 
 
-        const numberInput = document.getElementById("unban-number");
 
-        const messageInput = document.getElementById("unban-message");
-
-
-        if(numberInput){
-
-            number = numberInput.value;
-
-        }
+        number = document.getElementById("unban-number").value;
 
 
-        if(messageInput){
 
-            message = messageInput.value;
+        message = document.getElementById("unban-message").value;
 
-        }
 
 
     }
@@ -213,11 +386,16 @@ function sendEmail(type){
 
 
 
+
+
     if(number.trim() === ""){
 
-        alert("Please enter your WhatsApp number");
+
+        alert("Enter your WhatsApp number");
+
 
         return;
+
 
     }
 
@@ -236,28 +414,8 @@ function sendEmail(type){
 
 
 
-    const body = encodeURIComponent(
+    const body = encodeURIComponent(message);
 
-`Hello WhatsApp Support,
-
-WhatsApp Number:
-
-${number}
-
-
-Category:
-
-${selectedReason || "Not selected"}
-
-
-Message:
-
-${message}
-
-
-Thank you.`
-
-    );
 
 
 
@@ -265,6 +423,7 @@ Thank you.`
 
 
     window.location.href =
+
 
     "mailto:" +
 
