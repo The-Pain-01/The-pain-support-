@@ -1,72 +1,183 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAN SUPPORT - THE PAIN</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>☠️ BAN SUPPORT ☠️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" href="assets/favicon.ico">
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <h1>☠️ BAN SUPPORT ☠️</h1>
+<video autoplay muted loop playsinline id="background-video">
 
-    <p>
-        Utilise ce formulaire pour contacter le support concernant un compte suspendu.
-    </p>
+<source src="assets/bg.mp4" type="video/mp4">
 
-    <input type="text" id="number" placeholder="Numéro WhatsApp (+243...)">
+</video>
 
-    <select id="reason">
-        <option value="Compte suspendu">Compte suspendu</option>
-        <option value="Erreur de suspension">Erreur de suspension</option>
-        <option value="Suspension injustifiée">Suspension injustifiée</option>
-    </select>
 
-    <button onclick="sendBan()">
-        ENVOYER AU SUPPORT
-    </button>
 
-    <a href="home.html">
-        ⬅ Retour
-    </a>
+<div class="overlay"></div>
+
+
+
+<div class="page">
+
+
+<header>
+
+<h1 class="title">
+☠️ THE PAIN SUPPORT ☠️
+</h1>
+
+</header>
+
+
+
+
+<main>
+
+
+<div class="button-container">
+
+
+
+<h2 class="form-title">
+BAN SUPPORT
+</h2>
+
+
+
+<input 
+class="support-input"
+id="ban-number"
+type="text"
+placeholder="Enter the number to ban">
+
+
+
+
+
+<div class="reason-box">
+
+
+<button class="main-btn reason-btn" onclick="toggleReason('ban-reasons')">
+
+Reason ▼
+
+</button>
+
+
+
+
+<div id="ban-reasons" class="reason-list">
+
+
+<p onclick="selectReason('Spam')">
+Spam
+</p>
+
+
+<p onclick="selectReason('Scam')">
+Scam
+</p>
+
+
+<p onclick="selectReason('Illegal Content')">
+Illegal Content
+</p>
+
+
+<p onclick="selectReason('Child Safety')">
+Child Safety
+</p>
+
+
+<p onclick="selectReason('Impersonation')">
+Impersonation
+</p>
+
+
+<p onclick="selectReason('Other')">
+Other
+</p>
+
 
 </div>
 
-<script>
-function sendBan(){
 
-    let number = document.getElementById("number").value;
-    let reason = document.getElementById("reason").value;
+</div>
 
-    if(!number){
-        alert("Entre ton numéro WhatsApp");
-        return;
-    }
 
-    let message = `Bonjour WhatsApp Support,
 
-Je demande une vérification concernant mon compte WhatsApp.
 
-Numéro concerné : ${number}
+<p id="selected-reason">
+No reason selected
+</p>
 
-Motif : ${reason}
 
-Merci de bien vouloir examiner cette situation.
 
-Cordialement.`;
 
-    let subject = "Demande de réexamen d'un compte WhatsApp suspendu";
 
-    window.location.href =
-    "mailto:support@whatsapp.com?subject="
-    + encodeURIComponent(subject)
-    + "&body="
-    + encodeURIComponent(message);
-}
-</script>
+<textarea
+class="support-input textarea"
+id="ban-message"
+placeholder="Write your message...">
+</textarea>
+
+
+
+
+
+
+<button class="main-btn" onclick="sendEmail('ban')">
+
+SEND REPORT
+
+</button>
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+<footer>
+
+POWERED BY THE PAIN TDL
+
+</footer>
+
+
+
+
+</div>
+
+
+
+<script src="config.js"></script>
+
+<script src="message.js"></script>
+
+<script src="script.js"></script>
+
+
 
 </body>
+
 </html>
