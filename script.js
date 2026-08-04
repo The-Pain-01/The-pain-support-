@@ -1,8 +1,6 @@
-script.js
-
 /* ==================================
    THE PAIN SUPPORT SCRIPT
-   FINAL VERSION
+   FINAL PREMIUM VERSION
    ================================== */
 
 
@@ -15,27 +13,53 @@ let currentType = "";
 
 
 
+
 // ================================
-// OPEN / CLOSE DROPDOWN
+// PAGE ACCESS PROTECTION
 // ================================
 
-function toggleReason(id){
 
-    const menu = document.getElementById(id);
-
-    if(!menu) return;
+function checkAccess(){
 
 
-    menu.style.display =
+if(sessionStorage.getItem("authorized") !== "true"){
 
-    menu.style.display === "block"
-
-    ? "none"
-
-    : "block";
+window.location.href="index.html";
 
 }
 
+
+}
+
+
+
+
+
+// ================================
+// DROPDOWN SYSTEM
+// ================================
+
+
+function toggleReason(id){
+
+
+const menu = document.getElementById(id);
+
+
+if(!menu) return;
+
+
+
+menu.style.display =
+
+menu.style.display === "block"
+
+? "none"
+
+: "block";
+
+
+}
 
 
 
@@ -46,80 +70,78 @@ function toggleReason(id){
 // BAN REASON
 // ================================
 
+
 function selectReason(reason){
 
 
-    selectedReason = reason;
 
-    currentType = "ban";
+selectedReason = reason;
 
-    selectedScript = "";
+currentType = "ban";
 
-
-
-    const display = document.getElementById("selected-reason");
-
-
-    if(display){
-
-        display.innerHTML = reason;
-
-    }
+selectedScript = "";
 
 
 
 
 
-    const menu = document.getElementById("ban-reasons");
+const display = document.getElementById("selected-reason");
 
 
-    if(menu){
+if(display){
 
-        menu.style.display = "none";
+display.innerHTML = reason;
 
-    }
-
-
-
-
-
-    const scriptButton = document.getElementById("script-button");
-
-
-
-    if(reason === "Other"){
-
-
-        if(scriptButton){
-
-            scriptButton.style.display = "none";
-
-        }
-
-
-        const box = document.getElementById("ban-message");
-
-
-        if(box){
-
-            box.value = "";
-
-        }
-
-
-        return;
-
-
-    }
+}
 
 
 
 
-    if(scriptButton){
 
-        scriptButton.style.display = "flex";
 
-    }
+const menu = document.getElementById("ban-reasons");
+
+
+if(menu){
+
+menu.style.display="none";
+
+}
+
+
+
+
+
+const scriptButton = document.getElementById("script-button");
+
+
+
+
+
+if(reason === "Other"){
+
+
+
+if(scriptButton){
+
+scriptButton.style.display="none";
+
+}
+
+
+
+const box=document.getElementById("ban-message");
+
+
+if(box){
+
+box.value="";
+
+}
+
+
+
+return;
 
 
 }
@@ -129,52 +151,63 @@ function selectReason(reason){
 
 
 
+if(scriptButton){
 
-// ================================
+scriptButton.style.display="flex";
+
+}
+
+
+
+}
+/* ================================
 // BAN SCRIPT
-// ================================
+// ================================ */
+
 
 function selectScript(script){
 
 
-    selectedScript = script;
+selectedScript = script;
 
 
 
-    const menu = document.getElementById("ban-scripts");
+const menu = document.getElementById("ban-scripts");
 
 
-    if(menu){
+if(menu){
 
-        menu.style.display = "none";
-
-    }
-
-
-
-
-    const display = document.getElementById("selected-reason");
-
-
-    if(display){
-
-        display.innerHTML =
-
-        selectedReason +
-
-        " - " +
-
-        script;
-
-    }
-
-
-
-
-    updateMessage("ban");
+menu.style.display="none";
 
 }
 
+
+
+
+
+const display = document.getElementById("selected-reason");
+
+
+if(display){
+
+display.innerHTML =
+
+selectedReason +
+
+" - " +
+
+script;
+
+}
+
+
+
+
+
+updateMessage("ban");
+
+
+}
 
 
 
@@ -185,96 +218,95 @@ function selectScript(script){
 // UNBAN TYPE
 // ================================
 
+
 function selectSuspension(type){
 
 
 
-    selectedReason = type;
+selectedReason = type;
 
-    currentType = "unban";
+currentType = "unban";
 
-    selectedScript = "";
-
-
-
-
-
-    const menu = document.getElementById("suspension-list");
-
-
-    if(menu){
-
-        menu.style.display = "none";
-
-    }
+selectedScript = "";
 
 
 
 
 
-    const display = document.getElementById("selected-reason");
+const menu = document.getElementById("suspension-list");
 
 
+if(menu){
 
-    if(display){
+menu.style.display="none";
 
-        display.innerHTML = type;
-
-    }
-
-
-
-
-
-    const scriptButton = document.getElementById("unban-script-button");
+}
 
 
 
 
 
-    if(type === "Other"){
+const display = document.getElementById("selected-reason");
 
 
+if(display){
 
-        if(scriptButton){
+display.innerHTML = type;
 
-            scriptButton.style.display = "none";
-
-        }
-
-
-
-        const box = document.getElementById("unban-message");
-
-
-
-        if(box){
-
-            box.value = "";
-
-        }
-
-
-
-        return;
-
-
-
-    }
+}
 
 
 
 
 
-    if(scriptButton){
+const scriptButton = document.getElementById("unban-script-button");
 
-        scriptButton.style.display = "flex";
 
-    }
+
+
+
+if(type === "Other"){
+
+
+
+if(scriptButton){
+
+scriptButton.style.display="none";
+
+}
+
+
+
+const box=document.getElementById("unban-message");
+
+
+if(box){
+
+box.value="";
+
+}
+
+
+
+return;
 
 
 }
 
+
+
+
+
+
+if(scriptButton){
+
+scriptButton.style.display="flex";
+
+}
+
+
+
+}
 
 
 
@@ -286,54 +318,55 @@ function selectSuspension(type){
 // UNBAN SCRIPT
 // ================================
 
+
 function selectUnbanScript(script){
 
 
 
-    selectedScript = script;
-
-
-
-
-    const menu = document.getElementById("unban-scripts");
-
-
-
-    if(menu){
-
-        menu.style.display = "none";
-
-    }
+selectedScript = script;
 
 
 
 
 
-
-    const display = document.getElementById("selected-reason");
-
+const menu = document.getElementById("unban-scripts");
 
 
-    if(display){
 
-        display.innerHTML =
+if(menu){
 
-        selectedReason +
+menu.style.display="none";
 
-        " - " +
-
-        script;
-
-
-    }
+}
 
 
 
 
 
 
-    updateMessage("unban");
 
+const display = document.getElementById("selected-reason");
+
+
+
+if(display){
+
+display.innerHTML =
+
+selectedReason +
+
+" - " +
+
+script;
+
+}
+
+
+
+
+
+
+updateMessage("unban");
 
 
 }
@@ -344,142 +377,73 @@ function selectUnbanScript(script){
 
 
 
+// ================================
+// MESSAGE GENERATOR
+// ================================
 
-// ================================
-// AUTO MESSAGE
-// ================================
 
 function updateMessage(type){
 
 
+let number="";
 
-    let number = "";
+let box=null;
 
-    let box = "";
 
 
 
 
+if(type==="ban"){
 
-    if(type === "ban"){
 
 
+const input=document.getElementById("ban-number");
 
-        const input = document.getElementById("ban-number");
 
-        box = document.getElementById("ban-message");
+box=document.getElementById("ban-message");
 
 
 
-        if(input){
+if(input){
 
-            number = input.value;
+number=input.value;
 
-        }
+}
 
 
 
 
 
-        if(selectedReason === "Other") return;
+if(selectedReason==="Other") return;
 
 
 
 
 
 
+if(
 
-        if(
+typeof MESSAGES !== "undefined" &&
 
-            MESSAGES &&
+MESSAGES.ban &&
 
-            MESSAGES.ban &&
+MESSAGES.ban[selectedReason] &&
 
-            MESSAGES.ban[selectedReason] &&
+MESSAGES.ban[selectedReason][selectedScript]
 
-            MESSAGES.ban[selectedReason][selectedScript]
+){
 
-        ){
 
 
+box.value =
 
-            box.value =
+MESSAGES.ban[selectedReason][selectedScript]
 
-            MESSAGES.ban[selectedReason][selectedScript]
+.replaceAll("{number}",number);
 
-            .replaceAll("{number}", number);
 
 
-
-        }
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-    if(type === "unban"){
-
-
-
-        const input = document.getElementById("unban-number");
-
-        box = document.getElementById("unban-message");
-
-
-
-        if(input){
-
-            number = input.value;
-
-        }
-
-
-
-
-
-        if(selectedReason === "Other") return;
-
-
-
-
-
-
-
-        if(
-
-            MESSAGES &&
-
-            MESSAGES.unban &&
-
-            MESSAGES.unban[selectedReason] &&
-
-            MESSAGES.unban[selectedReason][selectedScript]
-
-        ){
-
-
-
-            box.value =
-
-            MESSAGES.unban[selectedReason][selectedScript]
-
-            .replaceAll("{number}", number);
-
-
-
-        }
-
-
-
-    }
+}
 
 
 
@@ -491,64 +455,85 @@ function updateMessage(type){
 
 
 
+if(type==="unban"){
 
-// ================================
-// SUBJECT
-// ================================
+
+
+const input=document.getElementById("unban-number");
+
+
+box=document.getElementById("unban-message");
+
+
+
+if(input){
+
+number=input.value;
+
+}
+
+
+
+
+
+if(selectedReason==="Other") return;
+
+
+
+
+
+
+if(
+
+typeof MESSAGES !== "undefined" &&
+
+MESSAGES.unban &&
+
+MESSAGES.unban[selectedReason] &&
+
+MESSAGES.unban[selectedReason][selectedScript]
+
+){
+
+
+
+box.value =
+
+MESSAGES.unban[selectedReason][selectedScript]
+
+.replaceAll("{number}",number);
+
+
+
+}
+
+
+
+}
+
+}
+/* ================================
+// EMAIL SYSTEM
+// ================================ */
+
 
 function getSubject(type){
 
 
-
-    if(type === "ban"){
-
+if(type==="ban"){
 
 
-        return (
+return (
 
-        "WhatsApp Report - "
+"WhatsApp Report - " +
 
-        + selectedReason
+selectedReason +
 
-        + " - "
+" - " +
 
-        + selectedScript
+selectedScript
 
-        );
-
-
-    }
-
-
-
-
-
-
-
-    if(type === "unban"){
-
-
-
-        return (
-
-        "WhatsApp Account Review - "
-
-        + selectedReason
-
-        + " - "
-
-        + selectedScript
-
-        );
-
-
-    }
-
-
-
-
-
-    return "WhatsApp Support";
+);
 
 
 }
@@ -557,130 +542,103 @@ function getSubject(type){
 
 
 
+if(type==="unban"){
+
+
+return (
+
+"WhatsApp Account Review - " +
+
+selectedReason +
+
+" - " +
+
+selectedScript
+
+);
+
+
+}
 
 
 
 
-// ================================
-// SEND EMAIL
-// ================================
+return "WhatsApp Support";
+
+
+}
+
+
+
+
+
 
 function sendEmail(type){
 
 
 
-    let message = "";
+let number="";
 
-    let number = "";
+let message="";
 
 
 
 
 
-    if(type === "ban"){
+if(type==="ban"){
 
 
+const input=document.getElementById("ban-number");
 
-        number = document.getElementById("ban-number").value;
+const box=document.getElementById("ban-message");
 
-        message = document.getElementById("ban-message").value;
 
 
+if(input){
 
-    }
+number=input.value;
 
+}
 
 
 
+if(box){
 
+message=box.value;
 
-    if(type === "unban"){
+}
 
 
 
-        number = document.getElementById("unban-number").value;
+}
 
-        message = document.getElementById("unban-message").value;
 
 
 
-    }
 
 
+if(type==="unban"){
 
 
+const input=document.getElementById("unban-number");
 
-    if(number.trim() === ""){
+const box=document.getElementById("unban-message");
 
 
-        alert("Enter WhatsApp number");
 
+if(input){
 
-        return;
+number=input.value;
 
+}
 
-    }
 
 
+if(box){
 
+message=box.value;
 
-
-
-
-    if(message.trim() === ""){
-
-
-        alert("Select a script or write a message");
-
-
-        return;
-
-
-    }
-
-
-
-
-
-
-
-
-    const subject = encodeURIComponent(
-
-        getSubject(type)
-
-    );
-
-
-
-
-
-    const body = encodeURIComponent(
-
-        message
-
-    );
-
-
-
-
-
-
-
-    window.location.href =
-
-
-    "mailto:" +
-
-    CONFIG.supportContacts.join(",") +
-
-    "?subject=" +
-
-    subject +
-
-    "&body=" +
-
-    body;
+}
 
 
 
@@ -692,34 +650,188 @@ function sendEmail(type){
 
 
 
+if(number.trim()===""){
+
+
+alert("Enter WhatsApp number");
+
+return;
+
+
+}
+
+
+
+
+
+
+
+if(message.trim()===""){
+
+
+alert("Select a script or write a message");
+
+return;
+
+
+}
+
+
+
+
+
+
+const subject = encodeURIComponent(
+
+getSubject(type)
+
+);
+
+
+
+
+
+
+const body = encodeURIComponent(
+
+message
+
+);
+
+
+
+
+
+
+
+window.location.href =
+
+
+"mailto:" +
+
+CONFIG.supportContacts.join(",") +
+
+"?subject=" +
+
+subject +
+
+"&body=" +
+
+body;
+
+
+
+}
+
+
+
+
+
+
 
 // ================================
-// LIVE NUMBER UPDATE
+// PASSWORD ACCESS
 // ================================
 
 
-document.addEventListener("input", function(e){
+function checkPassword(){
 
 
 
-    if(e.target.id === "ban-number"){
+const input=document.getElementById("password");
 
+const box=document.getElementById("password-box");
 
-        updateMessage("ban");
-
-
-    }
-
-
-
-    if(e.target.id === "unban-number"){
-
-
-        updateMessage("unban");
-
-
-    }
+const message=document.getElementById("access-message");
 
 
 
-});
+
+if(!input) return;
+
+
+
+
+
+if(input.value === CONFIG.password){
+
+
+
+sessionStorage.setItem(
+
+"authorized",
+
+"true"
+
+);
+
+
+
+
+
+message.innerHTML=
+
+"✅ Access Granted - Welcome to THE PAIN SUPPORT";
+
+
+
+message.style.color="white";
+
+
+
+
+
+document.body.classList.add("fade-out");
+
+
+
+
+
+setTimeout(()=>{
+
+
+window.location.href="home.html";
+
+
+},500);
+
+
+
+
+
+}else{
+
+
+
+if(box){
+
+box.classList.remove("shake");
+
+void box.offsetWidth;
+
+box.classList.add("shake");
+
+
+}
+
+
+
+input.value="";
+
+
+
+message.innerHTML=
+
+"❌ Wrong Password - Access Denied";
+
+
+
+message.style.color="white";
+
+
+
+}
+
+
+
+}
