@@ -32,6 +32,7 @@
 
 
 
+
 <div class="page">
 
 
@@ -76,11 +77,13 @@ id="ban-number"
 
 type="text"
 
-placeholder="Enter the number to ban"
+placeholder="+243XXXXXXXXX"
 
 oninput="updateMessage('ban')"
 
 >
+
+
 
 
 
@@ -99,53 +102,37 @@ Reason ▼
 
 
 
+
 <div id="ban-reasons" class="reason-list">
 
 
 <p onclick="selectReason('Spam','ban')">
-
 Spam
-
 </p>
-
 
 
 <p onclick="selectReason('Scam','ban')">
-
 Scam
-
 </p>
-
 
 
 <p onclick="selectReason('Illegal Content','ban')">
-
 Illegal Content
-
 </p>
-
 
 
 <p onclick="selectReason('Child Safety','ban')">
-
 Child Safety
-
 </p>
-
 
 
 <p onclick="selectReason('Impersonation','ban')">
-
 Impersonation
-
 </p>
-
 
 
 <p onclick="selectReason('Other','ban')">
-
 Other
-
 </p>
 
 
@@ -153,6 +140,60 @@ Other
 
 
 </div>
+
+
+
+
+
+
+
+<div class="reason-box" id="script-container" style="display:none;">
+
+
+<button class="main-btn" onclick="toggleReason('script-list')">
+
+Script ▼
+
+</button>
+
+
+
+
+
+<div id="script-list" class="reason-list">
+
+
+<p onclick="selectScript('Script 1')">
+Script 1
+</p>
+
+
+<p onclick="selectScript('Script 2')">
+Script 2
+</p>
+
+
+<p onclick="selectScript('Script 3')">
+Script 3
+</p>
+
+
+<p onclick="selectScript('Script 4')">
+Script 4
+</p>
+
+
+<p onclick="selectScript('Script 5')">
+Script 5
+</p>
+
+
+</div>
+
+
+</div>
+
+
 
 
 
@@ -177,9 +218,9 @@ class="support-input textarea"
 
 id="ban-message"
 
-placeholder="Message"
+placeholder="Message">
 
-></textarea>
+</textarea>
 
 
 
@@ -196,10 +237,25 @@ SEND REPORT
 
 
 
+
+
+<a href="index.html" class="main-btn">
+
+BACK
+
+</a>
+
+
+
+
+
+
+
 </div>
 
 
 </main>
+
 
 
 
@@ -215,7 +271,11 @@ POWERED BY THE PAIN TDL
 
 
 
+
+
 </div>
+
+
 
 
 
@@ -226,6 +286,7 @@ POWERED BY THE PAIN TDL
 <script src="message.js"></script>
 
 <script src="script.js"></script>
+
 
 
 </body>
