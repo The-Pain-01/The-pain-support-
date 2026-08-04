@@ -5,15 +5,22 @@
 
 const CONFIG = {
 
+
     owner:
+
     "☠️ —͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 ☠️",
 
 
+
     channel:
+
     "https://whatsapp.com/channel/0029Vb7FTvDICVfgeK27ul2S",
 
 
+
+
     supportContacts: [
+
 
         "support@support.whatsapp.com",
 
@@ -33,10 +40,71 @@ const CONFIG = {
 
         "smb@support.whatsapp.com"
 
+
     ],
 
 
+
+
+
+
     siteName:
-    "THE PAIN SUPPORT"
+
+    "THE PAIN SUPPORT",
+
+
+
+
+    // ================================
+    // ACCESS PASSWORD
+    // Change uniquement cette valeur
+    // ================================
+
+
+    password:
+
+    "CHANGE_ME",
+
+
+
+
+
+
+    // ================================
+    // SITE INFORMATION
+    // ================================
+
+
+    version:
+
+    "v1.0.0",
+
+
+
+    creationDate:
+
+    "04 August 2026",
+
+
+
+
+    developer:
+
+    "THE PAIN",
+
+
+
+
+    technologies: [
+
+        "HTML5",
+
+        "CSS3",
+
+        "JavaScript"
+
+    ]
+
+
 
 };
