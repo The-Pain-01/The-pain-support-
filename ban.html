@@ -9,24 +9,30 @@
 
 <title>🔥 BAN SUPPORT 🔥</title>
 
+
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" href="assets/favicon.ico">
 
+
 </head>
 
 
-<body>
+<body onload="checkAccess()">
 
 
-<video autoplay muted loop playsinline preload="auto" id="background-video">
+
+<video autoplay muted loop playsinline id="background-video">
 
 <source src="assets/bg.mp4" type="video/mp4">
 
 </video>
 
 
+
 <div class="overlay"></div>
+
+
 
 
 
@@ -34,7 +40,10 @@
 
 
 
+
+
 <header>
+
 
 <h1 class="title">
 
@@ -42,7 +51,10 @@
 
 </h1>
 
+
 </header>
+
+
 
 
 
@@ -51,7 +63,9 @@
 <main>
 
 
+
 <div class="button-container">
+
 
 
 
@@ -80,8 +94,6 @@ type="text"
 placeholder="+243XXXXXXXXX"
 
 >
-
-
 
 
 
@@ -162,21 +174,12 @@ Other
 
 
 
-
 <button id="script-button" class="main-btn" onclick="toggleReason('ban-scripts')" style="display:none;">
 
 📜 SCRIPT 📜
 
 </button>
-
-
-
-
-
-
-
 <div id="ban-scripts" class="reason-list">
-
 
 
 <p onclick="selectScript('Script 1')">
@@ -227,13 +230,11 @@ Script 5
 
 
 
-
 <p id="selected-reason">
 
 No reason selected
 
 </p>
-
 
 
 
@@ -283,11 +284,12 @@ placeholder="Message">
 
 
 
-
 </div>
 
 
+
 </main>
+
 
 
 
@@ -307,6 +309,7 @@ POWERED BY THE PAIN TDL
 
 
 </div>
+
 
 
 
