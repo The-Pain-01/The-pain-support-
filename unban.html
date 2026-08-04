@@ -1,77 +1,162 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNBAN SUPPORT - THE PAIN</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>☠️ UNBAN SUPPORT ☠️</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link rel="icon" href="assets/favicon.ico">
+
+
 </head>
+
+
 
 <body>
 
-<div class="container">
 
-    <h1>☠️ UNBAN SUPPORT ☠️</h1>
 
-    <p>
-        Fais une demande de récupération pour ton compte WhatsApp.
-    </p>
+<video autoplay muted loop playsinline id="background-video">
 
-    <input type="text" id="number" placeholder="Numéro WhatsApp (+243...)">
+<source src="assets/bg.mp4" type="video/mp4">
 
-    <select id="reason">
-        <option value="Compte bloqué par erreur">Compte bloqué par erreur</option>
-        <option value="Compte récupéré">Compte récupéré</option>
-        <option value="Demande de réactivation">Demande de réactivation</option>
-    </select>
+</video>
 
-    <button onclick="sendUnban()">
-        ENVOYER AU SUPPORT
-    </button>
 
-    <a href="home.html">
-        ⬅ Retour
-    </a>
+
+<div class="overlay"></div>
+
+
+
+
+<div class="page">
+
+
+
+<header>
+
+
+<h1 class="title">
+
+☠️ THE PAIN SUPPORT ☠️
+
+</h1>
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+
+<div class="button-container">
+
+
+
+
+
+<h2 class="form-title">
+
+UNBAN SUPPORT
+
+</h2>
+
+
+
+
+
+<input
+
+class="support-input"
+
+id="unban-number"
+
+type="text"
+
+placeholder="Enter the banned number">
+
+
+
+
+
+
+<textarea
+
+class="support-input textarea"
+
+id="unban-message"
+
+placeholder="Explain your problem">
+
+</textarea>
+
+
+
+
+
+
+
+<button class="main-btn" onclick="sendEmail('unban')">
+
+SEND REQUEST
+
+</button>
+
+
+
+
+
 
 </div>
 
 
-<script>
 
-function sendUnban(){
-
-    let number = document.getElementById("number").value;
-    let reason = document.getElementById("reason").value;
-
-    if(!number){
-        alert("Entre ton numéro WhatsApp");
-        return;
-    }
+</main>
 
 
-    let message = `Bonjour WhatsApp Support,
 
-Je souhaite demander la réactivation de mon compte WhatsApp.
 
-Numéro concerné : ${number}
 
-Motif : ${reason}
 
-Je vous prie de bien vouloir vérifier mon compte et m'aider à le récupérer.
+<footer>
 
-Merci.`;
+POWERED BY THE PAIN TDL
 
-    let subject = "Demande de récupération d'un compte WhatsApp";
+</footer>
 
-    window.location.href =
-    "mailto:support@whatsapp.com?subject="
-    + encodeURIComponent(subject)
-    + "&body="
-    + encodeURIComponent(message);
 
-}
 
-</script>
+
+
+
+</div>
+
+
+
+
+
+
+<script src="config.js"></script>
+
+<script src="message.js"></script>
+
+<script src="script.js"></script>
+
+
 
 </body>
+
+
 </html>
