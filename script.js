@@ -1,5 +1,8 @@
+script.js
+
 /* ==================================
    THE PAIN SUPPORT SCRIPT
+   FINAL VERSION
    ================================== */
 
 
@@ -12,20 +15,15 @@ let currentType = "";
 
 
 
-
-
 // ================================
-// OPEN / CLOSE MENUS
+// OPEN / CLOSE DROPDOWN
 // ================================
 
 function toggleReason(id){
 
-
     const menu = document.getElementById(id);
 
-
     if(!menu) return;
-
 
 
     menu.style.display =
@@ -35,7 +33,6 @@ function toggleReason(id){
     ? "none"
 
     : "block";
-
 
 }
 
@@ -49,23 +46,18 @@ function toggleReason(id){
 // BAN REASON
 // ================================
 
-function selectReason(reason,type){
-
+function selectReason(reason){
 
 
     selectedReason = reason;
 
-    currentType = type;
+    currentType = "ban";
 
     selectedScript = "";
 
 
 
-
-
-
     const display = document.getElementById("selected-reason");
-
 
 
     if(display){
@@ -78,14 +70,12 @@ function selectReason(reason,type){
 
 
 
+    const menu = document.getElementById("ban-reasons");
 
 
-    const reasonMenu = document.getElementById("ban-reasons");
+    if(menu){
 
-
-    if(reasonMenu){
-
-        reasonMenu.style.display = "none";
+        menu.style.display = "none";
 
     }
 
@@ -93,51 +83,43 @@ function selectReason(reason,type){
 
 
 
-
-
-    const scriptBox = document.getElementById("script-container");
-
+    const scriptButton = document.getElementById("script-button");
 
 
 
-
-    if(type === "ban"){
-
+    if(reason === "Other"){
 
 
-        if(reason === "Other"){
+        if(scriptButton){
 
-
-
-            if(scriptBox){
-
-                scriptBox.style.display = "none";
-
-            }
-
-
-            document.getElementById("ban-message").value = "";
-
-
-        }else{
-
-
-
-            if(scriptBox){
-
-                scriptBox.style.display = "block";
-
-            }
-
-
+            scriptButton.style.display = "none";
 
         }
 
 
+        const box = document.getElementById("ban-message");
+
+
+        if(box){
+
+            box.value = "";
+
+        }
+
+
+        return;
+
 
     }
 
 
+
+
+    if(scriptButton){
+
+        scriptButton.style.display = "flex";
+
+    }
 
 
 }
@@ -155,15 +137,11 @@ function selectReason(reason,type){
 function selectScript(script){
 
 
-
     selectedScript = script;
 
 
 
-
-
-    const menu = document.getElementById("script-list");
-
+    const menu = document.getElementById("ban-scripts");
 
 
     if(menu){
@@ -175,11 +153,7 @@ function selectScript(script){
 
 
 
-
-
-
     const display = document.getElementById("selected-reason");
-
 
 
     if(display){
@@ -192,20 +166,14 @@ function selectScript(script){
 
         script;
 
-
     }
-
-
 
 
 
 
     updateMessage("ban");
 
-
-
 }
-
 
 
 
@@ -231,9 +199,7 @@ function selectSuspension(type){
 
 
 
-
     const menu = document.getElementById("suspension-list");
-
 
 
     if(menu){
@@ -241,8 +207,6 @@ function selectSuspension(type){
         menu.style.display = "none";
 
     }
-
-
 
 
 
@@ -262,9 +226,7 @@ function selectSuspension(type){
 
 
 
-
-
-    const scriptBox = document.getElementById("unban-script-container");
+    const scriptButton = document.getElementById("unban-script-button");
 
 
 
@@ -274,31 +236,41 @@ function selectSuspension(type){
 
 
 
-        if(scriptBox){
+        if(scriptButton){
 
-            scriptBox.style.display = "none";
+            scriptButton.style.display = "none";
+
+        }
+
+
+
+        const box = document.getElementById("unban-message");
+
+
+
+        if(box){
+
+            box.value = "";
 
         }
 
 
-        document.getElementById("unban-message").value = "";
 
-
-
-    }else{
-
-
-
-        if(scriptBox){
-
-            scriptBox.style.display = "block";
-
-        }
+        return;
 
 
 
     }
 
+
+
+
+
+    if(scriptButton){
+
+        scriptButton.style.display = "flex";
+
+    }
 
 
 }
@@ -323,8 +295,7 @@ function selectUnbanScript(script){
 
 
 
-
-    const menu = document.getElementById("unban-script-list");
+    const menu = document.getElementById("unban-scripts");
 
 
 
@@ -339,13 +310,11 @@ function selectUnbanScript(script){
 
 
 
-
     const display = document.getElementById("selected-reason");
 
 
 
     if(display){
-
 
         display.innerHTML =
 
@@ -354,7 +323,6 @@ function selectUnbanScript(script){
         " - " +
 
         script;
-
 
 
     }
@@ -378,7 +346,7 @@ function selectUnbanScript(script){
 
 
 // ================================
-// GENERATE MESSAGE
+// AUTO MESSAGE
 // ================================
 
 function updateMessage(type){
@@ -388,8 +356,6 @@ function updateMessage(type){
     let number = "";
 
     let box = "";
-
-
 
 
 
@@ -415,15 +381,9 @@ function updateMessage(type){
 
 
 
-        if(selectedReason === "Other"){
+        if(selectedReason === "Other") return;
 
 
-            box.value = "";
-
-            return;
-
-
-        }
 
 
 
@@ -431,11 +391,13 @@ function updateMessage(type){
 
         if(
 
-        MESSAGES.ban[selectedReason]
+            MESSAGES &&
 
-        &&
+            MESSAGES.ban &&
 
-        MESSAGES.ban[selectedReason][selectedScript]
+            MESSAGES.ban[selectedReason] &&
+
+            MESSAGES.ban[selectedReason][selectedScript]
 
         ){
 
@@ -445,7 +407,7 @@ function updateMessage(type){
 
             MESSAGES.ban[selectedReason][selectedScript]
 
-            .replace("{number}",number);
+            .replaceAll("{number}", number);
 
 
 
@@ -483,18 +445,7 @@ function updateMessage(type){
 
 
 
-
-
-        if(selectedReason === "Other"){
-
-
-
-            box.value = "";
-
-            return;
-
-
-        }
+        if(selectedReason === "Other") return;
 
 
 
@@ -504,11 +455,13 @@ function updateMessage(type){
 
         if(
 
-        MESSAGES.unban[selectedReason]
+            MESSAGES &&
 
-        &&
+            MESSAGES.unban &&
 
-        MESSAGES.unban[selectedReason][selectedScript]
+            MESSAGES.unban[selectedReason] &&
+
+            MESSAGES.unban[selectedReason][selectedScript]
 
         ){
 
@@ -518,7 +471,7 @@ function updateMessage(type){
 
             MESSAGES.unban[selectedReason][selectedScript]
 
-            .replace("{number}",number);
+            .replaceAll("{number}", number);
 
 
 
@@ -530,9 +483,7 @@ function updateMessage(type){
 
 
 
-
 }
-
 
 
 
@@ -552,16 +503,22 @@ function getSubject(type){
     if(type === "ban"){
 
 
-        return "WhatsApp Report - "
+
+        return (
+
+        "WhatsApp Report - "
 
         + selectedReason
 
         + " - "
 
-        + selectedScript;
+        + selectedScript
+
+        );
 
 
     }
+
 
 
 
@@ -572,13 +529,17 @@ function getSubject(type){
 
 
 
-        return "WhatsApp Account Review - "
+        return (
+
+        "WhatsApp Account Review - "
 
         + selectedReason
 
         + " - "
 
-        + selectedScript;
+        + selectedScript
+
+        );
 
 
     }
@@ -586,11 +547,12 @@ function getSubject(type){
 
 
 
+
     return "WhatsApp Support";
 
 
-
 }
+
 
 
 
@@ -607,10 +569,9 @@ function sendEmail(type){
 
 
 
-    let number = "";
-
     let message = "";
 
+    let number = "";
 
 
 
@@ -621,7 +582,6 @@ function sendEmail(type){
 
 
         number = document.getElementById("ban-number").value;
-
 
         message = document.getElementById("ban-message").value;
 
@@ -634,21 +594,17 @@ function sendEmail(type){
 
 
 
-
     if(type === "unban"){
 
 
 
         number = document.getElementById("unban-number").value;
 
-
         message = document.getElementById("unban-message").value;
 
 
 
     }
-
-
 
 
 
@@ -671,12 +627,29 @@ function sendEmail(type){
 
 
 
+    if(message.trim() === ""){
+
+
+        alert("Select a script or write a message");
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+
     const subject = encodeURIComponent(
 
         getSubject(type)
 
     );
-
 
 
 
@@ -712,3 +685,41 @@ function sendEmail(type){
 
 
 }
+
+
+
+
+
+
+
+
+// ================================
+// LIVE NUMBER UPDATE
+// ================================
+
+
+document.addEventListener("input", function(e){
+
+
+
+    if(e.target.id === "ban-number"){
+
+
+        updateMessage("ban");
+
+
+    }
+
+
+
+    if(e.target.id === "unban-number"){
+
+
+        updateMessage("unban");
+
+
+    }
+
+
+
+});
