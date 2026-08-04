@@ -19,9 +19,9 @@
 <body>
 
 
-<video autoplay muted loop playsinline id="background-video">
+<video autoplay muted loop playsinline preload="auto" id="background-video">
 
-<source src="assets/bg.mp4" type="video/mp4">
+    <source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
 
 </video>
 
@@ -31,16 +31,22 @@
 
 
 
+
 <div class="page">
+
 
 
 <header>
 
 <h1 class="title">
+
 ☠️ THE PAIN SUPPORT ☠️
+
 </h1>
 
 </header>
+
+
 
 
 
@@ -53,16 +59,28 @@
 
 
 <h2 class="form-title">
+
 BAN SUPPORT
+
 </h2>
 
 
 
-<input 
+
+
+
+<input
+
 class="support-input"
+
 id="ban-number"
+
 type="text"
+
 placeholder="Enter the number to ban">
+
+
+
 
 
 
@@ -71,7 +89,8 @@ placeholder="Enter the number to ban">
 <div class="reason-box">
 
 
-<button class="main-btn reason-btn" onclick="toggleReason('ban-reasons')">
+
+<button class="main-btn" onclick="toggleReason('ban-reasons')">
 
 Reason ▼
 
@@ -80,60 +99,100 @@ Reason ▼
 
 
 
+
+
 <div id="ban-reasons" class="reason-list">
 
 
+
 <p onclick="selectReason('Spam')">
+
 Spam
+
 </p>
+
 
 
 <p onclick="selectReason('Scam')">
+
 Scam
+
 </p>
+
+
 
 
 <p onclick="selectReason('Illegal Content')">
+
 Illegal Content
+
 </p>
+
+
+
 
 
 <p onclick="selectReason('Child Safety')">
+
 Child Safety
+
 </p>
+
+
+
 
 
 <p onclick="selectReason('Impersonation')">
+
 Impersonation
+
 </p>
+
+
+
 
 
 <p onclick="selectReason('Other')">
+
 Other
+
 </p>
 
 
+
 </div>
 
 
+
 </div>
+
+
 
 
 
 
 <p id="selected-reason">
+
 No reason selected
+
 </p>
+
+
 
 
 
 
 
 <textarea
+
 class="support-input textarea"
+
 id="ban-message"
-placeholder="Write your message...">
+
+placeholder="Write your message">
+
 </textarea>
+
 
 
 
@@ -148,10 +207,15 @@ SEND REPORT
 
 
 
+
+
+
 </div>
 
 
 </main>
+
+
 
 
 
@@ -166,7 +230,13 @@ POWERED BY THE PAIN TDL
 
 
 
+
+
 </div>
+
+
+
+
 
 
 
@@ -179,5 +249,6 @@ POWERED BY THE PAIN TDL
 
 
 </body>
+
 
 </html>
