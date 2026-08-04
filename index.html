@@ -22,11 +22,12 @@
 <body>
 
 
-<video autoplay muted loop id="background-video">
+<video autoplay muted loop playsinline id="background-video">
 
     <source src="assets/bg.mp4" type="video/mp4">
 
 </video>
+
 
 
 <div class="overlay"></div>
@@ -37,10 +38,12 @@
 
 
 
-<header class="top-title">
+<header>
 
-    <h1>
+    <h1 class="title">
+
         ☠️ —͟͟͞͞𝐓𝐇𝐄 ➪ 𝐏𝐀𝐈𝐍 ᭄ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 ☠️
+
     </h1>
 
 
@@ -50,173 +53,41 @@
 
 
 
-<main class="container">
+<main>
 
 
-<section id="ban-section" class="panel">
+<div class="button-container">
 
 
-<h2>
+
+<a href="ban.html" class="main-btn">
+
     BAN SUPPORT
-</h2>
-
-
-
-<input 
-id="ban-number"
-type="text"
-placeholder="Enter WhatsApp number">
-
-
-
-
-
-<div class="dropdown">
-
-
-<button onclick="toggleReason('ban-reasons')">
-
-Reason ▼
-
-</button>
-
-
-
-<div id="ban-reasons" class="dropdown-content">
-
-
-<p onclick="selectReason('Spam')">
-Spam
-</p>
-
-
-<p onclick="selectReason('Scam')">
-Scam
-</p>
-
-
-<p onclick="selectReason('Illegal Content')">
-Illegal Content
-</p>
-
-
-<p onclick="selectReason('Impersonation')">
-Impersonation
-</p>
-
-
-<p onclick="selectReason('Other')">
-Other
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<p id="selected-reason">
-No reason selected
-</p>
-
-
-
-
-<textarea
-id="ban-message"
-placeholder="Write your message...">
-</textarea>
-
-
-
-
-<button class="send-btn" onclick="sendEmail('ban')">
-
-OPEN EMAIL
-
-</button>
-
-
-
-
-<a href="home.html">
-
-<button class="back-btn">
-
-BACK
-
-</button>
 
 </a>
 
 
 
-</section>
 
+<a href="unban.html" class="main-btn">
 
-
-
-
-
-
-
-<section id="unban-section" class="panel">
-
-
-<h2>
-ACCOUNT REVIEW
-</h2>
-
-
-
-<input
-
-id="unban-number"
-
-type="text"
-
-placeholder="Enter WhatsApp number">
-
-
-
-
-
-<textarea
-
-id="unban-message"
-
-placeholder="Write your review request...">
-
-</textarea>
-
-
-
-
-<button class="send-btn" onclick="sendEmail('unban')">
-
-OPEN EMAIL
-
-</button>
-
-
-
-
-<a href="home.html">
-
-<button class="back-btn">
-
-BACK
-
-</button>
+    UNBAN SUPPORT
 
 </a>
 
 
 
-</section>
 
+<a href="#" class="main-btn">
+
+    CHANNEL
+
+</a>
+
+
+
+
+</div>
 
 
 </main>
@@ -240,7 +111,9 @@ POWERED BY
 
 
 
+
 </div>
+
 
 
 
@@ -255,6 +128,5 @@ POWERED BY
 
 
 </body>
-
 
 </html>
