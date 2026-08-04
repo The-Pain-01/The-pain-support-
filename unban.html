@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>☠️ UNBAN SUPPORT ☠️</title>
+<title>⚡ UNBAN SUPPORT ⚡</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,14 +21,12 @@
 
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
-    <source src="assets/bg.mp4" type="video/mp4">
+<source src="assets/bg.mp4" type="video/mp4">
 
 </video>
 
 
-
 <div class="overlay"></div>
-
 
 
 
@@ -65,9 +63,10 @@
 
 <h2 class="form-title">
 
-UNBAN SUPPORT
+⚡ UNBAN SUPPORT ⚡
 
 </h2>
+
 
 
 
@@ -85,8 +84,6 @@ type="text"
 
 placeholder="+243XXXXXXXXX"
 
-oninput="updateMessage('unban')"
-
 >
 
 
@@ -95,14 +92,14 @@ oninput="updateMessage('unban')"
 
 
 
-<div class="reason-box">
 
 
 <button class="main-btn" onclick="toggleReason('suspension-list')">
 
-Type of suspension ▼
+⚠️ TYPE OF SUSPENSION ⚠️
 
 </button>
+
 
 
 
@@ -121,13 +118,11 @@ Misuse of WhatsApp
 
 
 
-
 <p onclick="selectSuspension('Suspicious Activity')">
 
 Suspicious Activity
 
 </p>
-
 
 
 
@@ -139,13 +134,11 @@ Spam Suspension
 
 
 
-
 <p onclick="selectSuspension('Account Hacked')">
 
 Account Hacked
 
 </p>
-
 
 
 
@@ -157,10 +150,6 @@ Other
 
 
 
-
-</div>
-
-
 </div>
 
 
@@ -171,13 +160,9 @@ Other
 
 
 
-<div class="reason-box" id="unban-script-container" style="display:none;">
+<button id="unban-script-button" class="main-btn" onclick="toggleReason('unban-scripts')" style="display:none;">
 
-
-
-<button class="main-btn" onclick="toggleReason('unban-script-list')">
-
-Script ▼
+📜 SCRIPT 📜
 
 </button>
 
@@ -186,7 +171,8 @@ Script ▼
 
 
 
-<div id="unban-script-list" class="reason-list">
+
+<div id="unban-scripts" class="reason-list">
 
 
 
@@ -198,13 +184,11 @@ Script 1
 
 
 
-
 <p onclick="selectUnbanScript('Script 2')">
 
 Script 2
 
 </p>
-
 
 
 
@@ -216,13 +200,11 @@ Script 3
 
 
 
-
 <p onclick="selectUnbanScript('Script 4')">
 
 Script 4
 
 </p>
-
 
 
 
@@ -232,10 +214,6 @@ Script 5
 
 </p>
 
-
-
-
-</div>
 
 
 </div>
@@ -252,6 +230,8 @@ Script 5
 No suspension selected
 
 </p>
+
+
 
 
 
@@ -278,7 +258,7 @@ placeholder="Message">
 
 <button class="main-btn" onclick="sendEmail('unban')">
 
-SEND REQUEST
+⚡ SEND REQUEST ⚡
 
 </button>
 
@@ -288,11 +268,13 @@ SEND REQUEST
 
 
 
-<a href="index.html" class="main-btn">
 
-BACK
+<a href="home.html" class="main-btn">
+
+⬅️ BACK ⬅️
 
 </a>
+
 
 
 
@@ -322,10 +304,7 @@ POWERED BY THE PAIN TDL
 
 
 
-
 </div>
-
-
 
 
 
@@ -341,5 +320,6 @@ POWERED BY THE PAIN TDL
 
 
 </body>
+
 
 </html>
