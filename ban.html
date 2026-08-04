@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAN SUPPORT - THE PAIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>☠️ BAN SUPPORT ☠️</h1>
+
+    <p>
+        Utilise ce formulaire pour contacter le support concernant un compte suspendu.
+    </p>
+
+    <input type="text" id="number" placeholder="Numéro WhatsApp (+243...)">
+
+    <select id="reason">
+        <option value="Compte suspendu">Compte suspendu</option>
+        <option value="Erreur de suspension">Erreur de suspension</option>
+        <option value="Suspension injustifiée">Suspension injustifiée</option>
+    </select>
+
+    <button onclick="sendBan()">
+        ENVOYER AU SUPPORT
+    </button>
+
+    <a href="home.html">
+        ⬅ Retour
+    </a>
+
+</div>
+
+<script>
+function sendBan(){
+
+    let number = document.getElementById("number").value;
+    let reason = document.getElementById("reason").value;
+
+    if(!number){
+        alert("Entre ton numéro WhatsApp");
+        return;
+    }
+
+    let message = `Bonjour WhatsApp Support,
+
+Je demande une vérification concernant mon compte WhatsApp.
+
+Numéro concerné : ${number}
+
+Motif : ${reason}
+
+Merci de bien vouloir examiner cette situation.
+
+Cordialement.`;
+
+    let subject = "Demande de réexamen d'un compte WhatsApp suspendu";
+
+    window.location.href =
+    "mailto:support@whatsapp.com?subject="
+    + encodeURIComponent(subject)
+    + "&body="
+    + encodeURIComponent(message);
+}
+</script>
+
+</body>
+</html>
