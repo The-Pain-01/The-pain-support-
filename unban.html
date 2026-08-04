@@ -9,7 +9,6 @@
 
 <title>☠️ UNBAN SUPPORT ☠️</title>
 
-
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" href="assets/favicon.ico">
@@ -20,13 +19,11 @@
 <body>
 
 
-
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
 <source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
 
 </video>
-
 
 
 
@@ -42,15 +39,14 @@
 
 <header>
 
-
 <h1 class="title">
 
 ☠️ THE PAIN SUPPORT ☠️
 
 </h1>
 
-
 </header>
+
 
 
 
@@ -86,7 +82,7 @@ id="unban-number"
 
 type="text"
 
-placeholder="Enter the banned number"
+placeholder="+243XXXXXXXXX"
 
 oninput="updateMessage('unban')"
 
@@ -98,10 +94,92 @@ oninput="updateMessage('unban')"
 
 
 
+
 <div class="reason-box">
 
 
-<button class="main-btn" onclick="toggleReason('script-list')">
+<button class="main-btn" onclick="toggleReason('suspension-list')">
+
+Type of suspension ▼
+
+</button>
+
+
+
+
+
+
+<div id="suspension-list" class="reason-list">
+
+
+
+<p onclick="selectSuspension('Misuse of WhatsApp')">
+
+Misuse of WhatsApp
+
+</p>
+
+
+
+
+<p onclick="selectSuspension('Suspicious Activity')">
+
+Suspicious Activity
+
+</p>
+
+
+
+
+
+<p onclick="selectSuspension('Spam Suspension')">
+
+Spam Suspension
+
+</p>
+
+
+
+
+
+<p onclick="selectSuspension('Account Hacked')">
+
+Account Hacked
+
+</p>
+
+
+
+
+
+<p onclick="selectSuspension('Other')">
+
+Other
+
+</p>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="reason-box" id="unban-script-container" style="display:none;">
+
+
+
+<button class="main-btn" onclick="toggleReason('unban-script-list')">
 
 Script ▼
 
@@ -111,10 +189,12 @@ Script ▼
 
 
 
-<div id="script-list" class="reason-list">
+
+<div id="unban-script-list" class="reason-list">
 
 
-<p onclick="selectReason('Script 1','unban')">
+
+<p onclick="selectUnbanScript('Script 1')">
 
 Script 1
 
@@ -122,7 +202,8 @@ Script 1
 
 
 
-<p onclick="selectReason('Script 2','unban')">
+
+<p onclick="selectUnbanScript('Script 2')">
 
 Script 2
 
@@ -130,7 +211,8 @@ Script 2
 
 
 
-<p onclick="selectReason('Script 3','unban')">
+
+<p onclick="selectUnbanScript('Script 3')">
 
 Script 3
 
@@ -138,7 +220,8 @@ Script 3
 
 
 
-<p onclick="selectReason('Script 4','unban')">
+
+<p onclick="selectUnbanScript('Script 4')">
 
 Script 4
 
@@ -146,7 +229,8 @@ Script 4
 
 
 
-<p onclick="selectReason('Script 5','unban')">
+
+<p onclick="selectUnbanScript('Script 5')">
 
 Script 5
 
@@ -154,11 +238,12 @@ Script 5
 
 
 
-</div>
-
-
 
 </div>
+
+
+</div>
+
 
 
 
@@ -168,7 +253,7 @@ Script 5
 
 <p id="selected-reason">
 
-No script selected
+No suspension selected
 
 </p>
 
@@ -184,9 +269,9 @@ class="support-input textarea"
 
 id="unban-message"
 
-placeholder="Message"
+placeholder="Message">
 
-></textarea>
+</textarea>
 
 
 
@@ -207,8 +292,19 @@ SEND REQUEST
 
 
 
-</div>
 
+<a href="index.html" class="main-btn">
+
+BACK
+
+</a>
+
+
+
+
+
+
+</div>
 
 
 </main>
@@ -229,7 +325,10 @@ POWERED BY THE PAIN TDL
 
 
 
+
+
 </div>
+
 
 
 
