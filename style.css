@@ -1,9 +1,12 @@
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:Arial,Helvetica,sans-serif;
+
 }
+
 
 
 html,
@@ -28,11 +31,9 @@ body{
     position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
@@ -44,20 +45,19 @@ body{
 
 
 
-
 .overlay{
 
     position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
-
     height:100%;
 
+
     background:rgba(0,0,0,.82);
+
 
     z-index:-1;
 
@@ -66,22 +66,29 @@ body{
 
 
 
-
 .page{
+
 
     min-height:100vh;
 
     width:100%;
 
+
     display:flex;
+
 
     flex-direction:column;
 
+
     justify-content:space-between;
+
 
     align-items:center;
 
-    padding:35px 20px 20px;
+
+
+    padding:30px 20px 0;
+
 
 }
 
@@ -91,9 +98,12 @@ body{
 
 header{
 
+
     width:100%;
 
+
     text-align:center;
+
 
 }
 
@@ -103,17 +113,24 @@ header{
 
 .title{
 
+
     color:#fff;
+
 
     font-size:3rem;
 
+
     font-weight:900;
+
 
     letter-spacing:3px;
 
+
     text-transform:uppercase;
 
+
     white-space:nowrap;
+
 
 }
 
@@ -123,15 +140,21 @@ header{
 
 main{
 
+
     flex:1;
+
 
     width:100%;
 
+
     display:flex;
+
 
     justify-content:center;
 
+
     align-items:center;
+
 
 }
 
@@ -141,17 +164,24 @@ main{
 
 .button-container{
 
+
     width:100%;
+
 
     max-width:380px;
 
+
     display:flex;
+
 
     flex-direction:column;
 
+
     gap:22px;
 
+
     align-items:center;
+
 
 }
 
@@ -161,49 +191,80 @@ main{
 
 .main-btn{
 
+
     width:100%;
+
 
     height:65px;
 
+
+
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
 
+
+
     border:2px solid #fff;
 
+
     border-radius:15px;
+
+
 
 
     background:rgba(0,0,0,.55);
 
 
+
+
+
     color:#fff;
+
+
 
 
     text-decoration:none;
 
 
+
+
     font-size:1.1rem;
 
+
+
+
     font-weight:900;
+
+
 
 
     letter-spacing:2px;
 
 
+
+
     cursor:pointer;
+
+
 
 
     transition:.3s;
 
 
+
+
     backdrop-filter:blur(8px);
 
 
+
 }
+
 
 
 
@@ -220,12 +281,12 @@ main{
     transform:scale(1.05);
 
 
-    box-shadow:
+    box-shadow:0 0 25px #fff;
 
-    0 0 20px #fff;
 
 
 }
+
 
 
 
@@ -239,25 +300,39 @@ main{
     height:60px;
 
 
+
     border:2px solid #fff;
+
 
 
     border-radius:15px;
 
 
+
+
     background:rgba(0,0,0,.55);
+
+
+
 
 
     color:#fff;
 
 
+
+
     padding:15px;
+
+
 
 
     font-size:1rem;
 
 
+
+
     outline:none;
+
 
 
 }
@@ -278,9 +353,12 @@ main{
 
 .textarea{
 
+
     height:120px;
 
+
     resize:none;
+
 
 }
 
@@ -290,15 +368,22 @@ main{
 
 .form-title{
 
+
     color:#fff;
+
 
     font-size:1.5rem;
 
+
     font-weight:900;
+
 
     text-align:center;
 
+
     letter-spacing:2px;
+
+
 
 }
 
@@ -308,9 +393,13 @@ main{
 
 .reason-box{
 
+
     width:100%;
 
+
     position:relative;
+
+
 
 }
 
@@ -333,16 +422,22 @@ main{
     width:100%;
 
 
+
     background:#000;
+
+
 
 
     border:2px solid #fff;
 
 
+
     border-radius:15px;
 
 
-    z-index:5;
+
+
+    z-index:10;
 
 
 }
@@ -360,10 +455,12 @@ main{
     color:#fff;
 
 
-    cursor:pointer;
-
 
     text-align:center;
+
+
+
+    cursor:pointer;
 
 
 }
@@ -376,6 +473,7 @@ main{
 
 
     background:#fff;
+
 
     color:#000;
 
@@ -391,9 +489,9 @@ main{
 
     color:#fff;
 
+
     text-align:center;
 
-    font-size:.9rem;
 
 }
 
@@ -410,19 +508,29 @@ footer{
     text-align:center;
 
 
+
     color:#fff;
+
 
 
     font-size:.85rem;
 
 
+
     font-weight:700;
+
 
 
     letter-spacing:2px;
 
 
+
     white-space:nowrap;
+
+
+
+    margin-bottom:35px;
+
 
 
 }
@@ -434,14 +542,11 @@ footer{
 @media(max-width:768px){
 
 
-
 .title{
-
 
     font-size:2rem;
 
     letter-spacing:1px;
-
 
 }
 
@@ -449,9 +554,7 @@ footer{
 
 .button-container{
 
-
     max-width:330px;
-
 
 }
 
@@ -459,12 +562,9 @@ footer{
 
 .main-btn{
 
-
     height:58px;
 
-
     font-size:1rem;
-
 
 }
 
@@ -472,16 +572,13 @@ footer{
 
 footer{
 
-
     font-size:.75rem;
 
-
 }
 
 
 
 }
-
 
 
 
@@ -489,12 +586,9 @@ footer{
 @media(max-width:400px){
 
 
-
 .title{
 
-
     font-size:1.6rem;
-
 
 }
 
