@@ -7,13 +7,16 @@ let selectedReason = "";
 
 
 
-
-
-// Ouvrir / fermer le menu Reason
+// ================================
+// DROPDOWN REASON
+// ================================
 
 function toggleReason(id) {
 
     const menu = document.getElementById(id);
+
+    if (!menu) return;
+
 
     if (menu.style.display === "block") {
 
@@ -30,10 +33,9 @@ function toggleReason(id) {
 
 
 
-
-
-
-// Sélectionner une raison
+// ================================
+// SELECT REASON
+// ================================
 
 function selectReason(reason) {
 
@@ -41,12 +43,25 @@ function selectReason(reason) {
     selectedReason = reason;
 
 
-    document.getElementById("selected-reason").innerHTML =
-        "Selected : " + reason;
+    const display = document.getElementById("selected-reason");
+
+
+    if(display){
+
+        display.innerHTML = "Selected : " + reason;
+
+    }
 
 
 
-    document.getElementById("ban-reasons").style.display = "none";
+    const menu = document.getElementById("ban-reasons");
+
+
+    if(menu){
+
+        menu.style.display = "none";
+
+    }
 
 
 }
@@ -56,17 +71,17 @@ function selectReason(reason) {
 
 
 
-
-
-// Créer l'objet automatiquement
+// ================================
+// SUBJECT AUTOMATIQUE
+// ================================
 
 function getSubject(type) {
 
 
-    if (type === "ban") {
+    if(type === "ban"){
 
 
-        switch (selectedReason) {
+        switch(selectedReason){
 
 
             case "Spam":
@@ -74,11 +89,9 @@ function getSubject(type) {
                 return "WhatsApp Spam Report - Support Request";
 
 
-
             case "Scam":
 
                 return "WhatsApp Scam Report - Support Request";
-
 
 
             case "Illegal Content":
@@ -86,11 +99,9 @@ function getSubject(type) {
                 return "WhatsApp Safety Report - Support Request";
 
 
-
             case "Impersonation":
 
                 return "WhatsApp Impersonation Report - Support Request";
-
 
 
             case "Other":
@@ -98,29 +109,30 @@ function getSubject(type) {
                 return "WhatsApp Account Report - Support Request";
 
 
-
             default:
 
-                return "WhatsApp Support Request";
+                return "WhatsApp Account Suspension Review";
 
 
         }
 
 
-
     }
 
 
 
 
+    if(type === "unban"){
 
-    if (type === "unban") {
 
+        return "WhatsApp Account Unban Request";
 
-        return "WhatsApp Account Review Request";
 
     }
 
+
+
+    return "WhatsApp Support Request";
 
 
 }
@@ -130,12 +142,11 @@ function getSubject(type) {
 
 
 
+// ================================
+// ENVOI EMAIL
+// ================================
 
-
-// Envoyer vers l'application mail
-
-function sendEmail(type) {
-
+function sendEmail(type){
 
 
     let number = "";
@@ -145,18 +156,55 @@ function sendEmail(type) {
 
 
 
-
-    if (type === "ban") {
-
-
-        number =
-        document.getElementById("ban-number").value;
+    if(type === "ban"){
 
 
+        const numberInput = document.getElementById("ban-number");
 
-        message =
-        document.getElementById("ban-message").value;
+        const messageInput = document.getElementById("ban-message");
 
+
+        if(numberInput){
+
+            number = numberInput.value;
+
+        }
+
+
+        if(messageInput){
+
+            message = messageInput.value;
+
+        }
+
+
+    }
+
+
+
+
+
+
+    if(type === "unban"){
+
+
+        const numberInput = document.getElementById("unban-number");
+
+        const messageInput = document.getElementById("unban-message");
+
+
+        if(numberInput){
+
+            number = numberInput.value;
+
+        }
+
+
+        if(messageInput){
+
+            message = messageInput.value;
+
+        }
 
 
     }
@@ -165,27 +213,23 @@ function sendEmail(type) {
 
 
 
-    if (type === "unban") {
+    if(number.trim() === ""){
 
+        alert("Please enter your WhatsApp number");
 
-        number =
-        document.getElementById("unban-number").value;
-
-
-
-        message =
-        document.getElementById("unban-message").value;
-
-
+        return;
 
     }
+
 
 
 
 
 
     const subject = encodeURIComponent(
+
         getSubject(type)
+
     );
 
 
@@ -194,7 +238,7 @@ function sendEmail(type) {
 
     const body = encodeURIComponent(
 
-`Hello Support,
+`Hello WhatsApp Support,
 
 WhatsApp Number:
 
@@ -203,17 +247,17 @@ ${number}
 
 Category:
 
-${selectedReason}
+${selectedReason || "Not selected"}
 
 
 Message:
 
 ${message}
 
-`
+
+Thank you.`
 
     );
-
 
 
 
