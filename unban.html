@@ -9,12 +9,12 @@
 
 <title>☠️ UNBAN SUPPORT ☠️</title>
 
+
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" href="assets/favicon.ico">
 
 </head>
-
 
 
 <body>
@@ -23,7 +23,7 @@
 
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
-    <source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
+<source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
 
 </video>
 
@@ -36,11 +36,7 @@
 
 
 
-
-
 <div class="page">
-
-
 
 
 
@@ -61,11 +57,7 @@
 
 
 
-
-
 <main>
-
-
 
 
 <div class="button-container">
@@ -94,7 +86,91 @@ id="unban-number"
 
 type="text"
 
-placeholder="Enter the banned number">
+placeholder="Enter the banned number"
+
+oninput="updateMessage('unban')"
+
+>
+
+
+
+
+
+
+
+<div class="reason-box">
+
+
+<button class="main-btn" onclick="toggleReason('script-list')">
+
+Script ▼
+
+</button>
+
+
+
+
+
+<div id="script-list" class="reason-list">
+
+
+<p onclick="selectReason('Script 1','unban')">
+
+Script 1
+
+</p>
+
+
+
+<p onclick="selectReason('Script 2','unban')">
+
+Script 2
+
+</p>
+
+
+
+<p onclick="selectReason('Script 3','unban')">
+
+Script 3
+
+</p>
+
+
+
+<p onclick="selectReason('Script 4','unban')">
+
+Script 4
+
+</p>
+
+
+
+<p onclick="selectReason('Script 5','unban')">
+
+Script 5
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<p id="selected-reason">
+
+No script selected
+
+</p>
 
 
 
@@ -108,9 +184,10 @@ class="support-input textarea"
 
 id="unban-message"
 
-placeholder="Explain your problem">
+placeholder="Message"
 
-</textarea>
+></textarea>
+
 
 
 
@@ -120,12 +197,9 @@ placeholder="Explain your problem">
 
 <button class="main-btn" onclick="sendEmail('unban')">
 
-
 SEND REQUEST
 
-
 </button>
-
 
 
 
@@ -137,10 +211,7 @@ SEND REQUEST
 
 
 
-
 </main>
-
-
 
 
 
@@ -150,14 +221,9 @@ SEND REQUEST
 
 <footer>
 
-
 POWERED BY THE PAIN TDL
 
-
 </footer>
-
-
-
 
 
 
@@ -179,8 +245,6 @@ POWERED BY THE PAIN TDL
 
 
 
-
 </body>
-
 
 </html>
