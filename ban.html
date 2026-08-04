@@ -21,7 +21,7 @@
 
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
-    <source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
+<source src="https://files.catbox.moe/4d9eh3.mp4" type="video/mp4">
 
 </video>
 
@@ -68,7 +68,6 @@ BAN SUPPORT
 
 
 
-
 <input
 
 class="support-input"
@@ -77,9 +76,11 @@ id="ban-number"
 
 type="text"
 
-placeholder="Enter the number to ban">
+placeholder="Enter the number to ban"
 
+oninput="updateMessage('ban')"
 
+>
 
 
 
@@ -87,7 +88,6 @@ placeholder="Enter the number to ban">
 
 
 <div class="reason-box">
-
 
 
 <button class="main-btn" onclick="toggleReason('ban-reasons')">
@@ -99,13 +99,10 @@ Reason ▼
 
 
 
-
-
 <div id="ban-reasons" class="reason-list">
 
 
-
-<p onclick="selectReason('Spam')">
+<p onclick="selectReason('Spam','ban')">
 
 Spam
 
@@ -113,7 +110,7 @@ Spam
 
 
 
-<p onclick="selectReason('Scam')">
+<p onclick="selectReason('Scam','ban')">
 
 Scam
 
@@ -121,8 +118,7 @@ Scam
 
 
 
-
-<p onclick="selectReason('Illegal Content')">
+<p onclick="selectReason('Illegal Content','ban')">
 
 Illegal Content
 
@@ -130,9 +126,7 @@ Illegal Content
 
 
 
-
-
-<p onclick="selectReason('Child Safety')">
+<p onclick="selectReason('Child Safety','ban')">
 
 Child Safety
 
@@ -140,9 +134,7 @@ Child Safety
 
 
 
-
-
-<p onclick="selectReason('Impersonation')">
+<p onclick="selectReason('Impersonation','ban')">
 
 Impersonation
 
@@ -150,18 +142,14 @@ Impersonation
 
 
 
-
-
-<p onclick="selectReason('Other')">
+<p onclick="selectReason('Other','ban')">
 
 Other
 
 </p>
 
 
-
 </div>
-
 
 
 </div>
@@ -189,9 +177,9 @@ class="support-input textarea"
 
 id="ban-message"
 
-placeholder="Write your message">
+placeholder="Message"
 
-</textarea>
+></textarea>
 
 
 
@@ -208,13 +196,10 @@ SEND REPORT
 
 
 
-
-
 </div>
 
 
 </main>
-
 
 
 
@@ -230,11 +215,7 @@ POWERED BY THE PAIN TDL
 
 
 
-
-
 </div>
-
-
 
 
 
@@ -247,8 +228,6 @@ POWERED BY THE PAIN TDL
 <script src="script.js"></script>
 
 
-
 </body>
-
 
 </html>
