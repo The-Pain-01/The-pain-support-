@@ -15,27 +15,17 @@
 
 </head>
 
-
 <body>
-
 
 <video autoplay muted loop playsinline preload="auto" id="background-video">
 
-    <source src="assets/bg.mp4" type="video/mp4">
+<source src="assets/bg.mp4" type="video/mp4">
 
 </video>
 
-
-
 <div class="overlay"></div>
 
-
-
-
-
 <div class="page">
-
-
 
 <header>
 
@@ -47,64 +37,29 @@
 
 </header>
 
-
-
-
-
-
-
-
 <main>
-
 
 <div class="button-container">
 
+<input
+id="password"
+class="support-input"
+type="password"
+placeholder="PASSWORD"
+autocomplete="off"
+>
 
+<button class="main-btn" onclick="checkPassword()">
 
+🔓 CHECK ACCESS 🔓
 
+</button>
 
-<a href="ban.html" class="main-btn">
-
-BAN SUPPORT
-
-</a>
-
-
-
-
-
-<a href="unban.html" class="main-btn">
-
-UNBAN SUPPORT
-
-</a>
-
-
-
-
-
-<a href="https://whatsapp.com/channel/0029Vb7FTvDICVfgeK27ul2S" class="main-btn" target="_blank">
-
-CHANNEL
-
-</a>
-
-
-
-
-
-
+<p id="access-message"></p>
 
 </div>
 
-
 </main>
-
-
-
-
-
-
 
 <footer>
 
@@ -112,27 +67,49 @@ POWERED BY THE PAIN TDL
 
 </footer>
 
-
-
-
-
-
-
 </div>
 
+<script src="password.js"></script>
 
+<script>
 
+function checkPassword(){
 
+const input=document.getElementById("password");
+const message=document.getElementById("access-message");
 
+if(input.value===SITE_PASSWORD){
 
+message.style.color="#4dff88";
+message.innerHTML="✅ Access Granted - Welcome to THE PAIN SUPPORT";
+message.classList.remove("shake");
 
-<script src="config.js"></script>
+setTimeout(()=>{
 
-<script src="message.js"></script>
+window.location.href="home.html";
 
-<script src="script.js"></script>
+},1000);
 
+}else{
 
+message.style.color="#ff3d3d";
+message.innerHTML="❌ Wrong Password - Access Denied";
+
+input.classList.add("shake");
+
+input.value="";
+
+setTimeout(()=>{
+
+input.classList.remove("shake");
+
+},500);
+
+}
+
+}
+
+</script>
 
 </body>
 
