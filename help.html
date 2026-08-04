@@ -7,29 +7,43 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>☠️ HELP ☠️</title>
+<title>❓ HELP ❓</title>
+
 
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" href="assets/favicon.ico">
 
+
 </head>
 
-<body>
 
-<video autoplay muted loop playsinline preload="auto" id="background-video">
+<body onload="checkAccess()">
+
+
+
+<video autoplay muted loop playsinline id="background-video">
 
 <source src="assets/bg.mp4" type="video/mp4">
 
 </video>
 
+
+
 <div class="overlay"></div>
+
+
+
 
 
 <div class="page">
 
 
+
+
+
 <header>
+
 
 <h1 class="title">
 
@@ -37,14 +51,23 @@
 
 </h1>
 
+
 </header>
+
+
+
+
 
 
 
 <main>
 
 
+
 <div class="button-container">
+
+
+
 
 
 
@@ -57,7 +80,11 @@
 
 
 
-<div class="support-input textarea" style="height:auto; min-height:520px; overflow:auto; white-space:pre-line;">
+
+
+
+<div class="support-input textarea">
+
 
 
 ❓ COMMENT UTILISER THE PAIN SUPPORT ❓
@@ -69,100 +96,101 @@
 🔥 BAN SUPPORT 🔥
 
 
-Cette fonction permet de préparer une demande de signalement.
-
-
-ÉTAPES :
-
 1️⃣ Entrer le numéro WhatsApp concerné.
+
 
 2️⃣ Choisir une raison.
 
-3️⃣ Choisir un script adapté.
+
+3️⃣ Sélectionner un script.
+
 
 4️⃣ Vérifier le message généré.
 
-5️⃣ Appuyer sur SEND REPORT.
 
+5️⃣ Appuyer sur SEND REPORT.
 
 
 ━━━━━━━━━━━━━━━━━━━━
 
 
-
 ⚡ UNBAN SUPPORT ⚡
-
-
-Cette fonction permet de préparer une demande de révision d'un compte.
-
-
-ÉTAPES :
 
 
 1️⃣ Entrer le numéro WhatsApp.
 
+
 2️⃣ Choisir le type de suspension.
 
-3️⃣ Sélectionner un script.
+
+3️⃣ Choisir un script.
+
 
 4️⃣ Vérifier la demande.
+
 
 5️⃣ Appuyer sur SEND REQUEST.
 
 
 
 ━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━
+
+
+⚜️ AUTRES FONCTIONNALITÉS ⚜️
+
+
+👑 ABOUT
+
+Cette section contient les informations du développeur, la version du projet et les détails de création.
 
 
 
-⚜️ CHANNEL ⚜️
+⚜️ CHANNEL
+
+Permet d'accéder directement au canal officiel.
 
 
-Accès direct au canal officiel.
+
+🔐 SÉCURITÉ
+
+Le mot de passe protège l'accès au site.
+
+Chaque nouvelle session nécessite une nouvelle authentification.
 
 
 
 ━━━━━━━━━━━━━━━━━━━━
 
 
-
-👑 ABOUT 👑
-
-
-Permet de découvrir les informations concernant le créateur et le projet.
+💡 CONSEILS
 
 
+✔️ Utiliser un numéro au format international.
 
-━━━━━━━━━━━━━━━━━━━━
+Exemple :
+
++243XXXXXXXXX
 
 
+✔️ Vérifier le message avant l'envoi.
 
-🔒 PASSWORD 🔒
 
-
-Le mot de passe est demandé uniquement à l'ouverture du site.
-
-Une fois l'accès accepté, aucune nouvelle demande de mot de passe n'est nécessaire.
+✔️ Adapter le message dans la section Other si nécessaire.
 
 
 
 ━━━━━━━━━━━━━━━━━━━━
 
 
-
-⚙️ PROJECT
-
-
-THE PAIN SUPPORT
-
-
-Version : v1.0.0
-
-
-🔥 POWERED BY THE PAIN TDL 🔥
+🔥 THE PAIN SUPPORT 🔥
 
 
 </div>
+
+
+
+
 
 
 
@@ -175,10 +203,18 @@ Version : v1.0.0
 
 
 
+
+
+
+
 </div>
 
 
+
 </main>
+
+
+
 
 
 
@@ -192,9 +228,24 @@ POWERED BY THE PAIN TDL
 
 
 
+
+
+
 </div>
 
 
+
+
+
+
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+
+
 </body>
+
 
 </html>
