@@ -63,7 +63,7 @@ const CONFIG = {
 
     password:
 
-    "THE_PAIN_TDL",
+    "THEPAIN2026",
 
 
 
