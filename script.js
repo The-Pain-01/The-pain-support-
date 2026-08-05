@@ -160,9 +160,16 @@ scriptButton.style.display="flex";
 
 
 }
-/* ================================
+
+
+
+
+
+
+
+// ================================
 // BAN SCRIPT
-// ================================ */
+// ================================
 
 
 function selectScript(script){
@@ -512,9 +519,16 @@ MESSAGES.unban[selectedReason][selectedScript]
 }
 
 }
-/* ================================
+
+
+
+
+
+
+
+// ================================
 // EMAIL SYSTEM
-// ================================ */
+// ================================
 
 
 function getSubject(type){
@@ -588,25 +602,10 @@ let message="";
 if(type==="ban"){
 
 
-const input=document.getElementById("ban-number");
-
-const box=document.getElementById("ban-message");
+number=document.getElementById("ban-number").value;
 
 
-
-if(input){
-
-number=input.value;
-
-}
-
-
-
-if(box){
-
-message=box.value;
-
-}
+message=document.getElementById("ban-message").value;
 
 
 
@@ -620,25 +619,10 @@ message=box.value;
 if(type==="unban"){
 
 
-const input=document.getElementById("unban-number");
-
-const box=document.getElementById("unban-message");
+number=document.getElementById("unban-number").value;
 
 
-
-if(input){
-
-number=input.value;
-
-}
-
-
-
-if(box){
-
-message=box.value;
-
-}
+message=document.getElementById("unban-message").value;
 
 
 
@@ -781,7 +765,27 @@ message.style.color="white";
 
 
 
+setTimeout(()=>{
+
+
+message.classList.add("success-animation");
+
+
+},100);
+
+
+
+
+
+
+setTimeout(()=>{
+
+
 document.body.classList.add("fade-out");
+
+
+},1500);
+
 
 
 
@@ -793,7 +797,7 @@ setTimeout(()=>{
 window.location.href="home.html";
 
 
-},500);
+},2000);
 
 
 
